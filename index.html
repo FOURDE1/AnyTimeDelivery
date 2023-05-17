@@ -9,8 +9,8 @@
   <!-- Fonts -->
   <!-- google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"
@@ -58,8 +58,10 @@
         </div>
 
         <div class="flex2 text-end d-none d-md-block">
-          <button class="whiteLink siteLink"><a style="text-decoration: none; color: inherit;" href="register.html">REGISTER</a></button>
-          <button href="DeleveryLogin.html" class="Login  blackLink bg-dark siteLink"><a style="text-decoration: none; color: inherit;" href="SignUp.html">Login</a></button>
+          <button class="whiteLink siteLink"><a style="text-decoration: none; color: inherit;"
+              href="register.html">REGISTER</a></button>
+          <button href="DeleveryLogin.html" class="Login  blackLink bg-dark siteLink"><a
+              style="text-decoration: none; color: inherit;" href="SignUp.html">Login</a></button>
         </div>
       </div>
     </div>
@@ -108,7 +110,8 @@
         </div>
         <div class="RightContent col-md-6 d-flex flex-column justify-content-center align-items-center">
           <div class="align-self-start">
-            <h3 class="fw-bold mt-3 text-primary text-uppercase display-7 mb-5">Be Your Own Boss with Flexible Deliveries</h3>
+            <h3 class="fw-bold mt-3 text-primary text-uppercase display-7 mb-5">Be Your Own Boss with Flexible
+              Deliveries</h3>
           </div>
           <div class="d-flex flex-column justify-content-center align-items-center">
             <div class="text-center">
@@ -119,32 +122,32 @@
         </div>
       </div>
     </div>
-    
+
 
     <!-- BODY PART 2 -->
 
     <div class="BodyPart2 container-fluid row d-flex justify-content-center align-items-center">
       <div id="carousel" class="">
-    
+
         <div class="prev text-center ">
           <img width="20px" src="images/Storefront.svg" alt="not working">
           <h2 display="block">Sign Up & Login</h2>
         </div>
-    
+
         <div class="selected text-center ">
           <img src="images/ScootScoot.svg" alt="not working">
           <h2 display="block">Try Our Service</h2>
         </div>
-    
+
         <div class="next text-center monyImage ">
-    
+
           <img src="images/money-bag.png" alt="not working">
           <h2 display="block">Deliver and Earn</h2>
         </div>
-    
+
       </div>
     </div>
-    
+
     <!-- <div class="BodyPart2 container-fluid row d-flex justify-content-center align-items-center">
       <div id="carousel" class="col-md-8">
 
@@ -229,6 +232,66 @@
           <h2>&nbsp;</h2>
         </div>
       </div> -->
+      <div class="container mt-3" style="background-color: rgb(255, 183, 0)">
+        <div class="d-block text-center pt-4 pb-2" style="color:rgb(255, 0, 0) ;">
+          <h2 class="">Order A Service</h2>
+        </div>
+        <div class="row">
+
+          <div class="col-md-3 h5 d-none d-md-block mt-5 px-5" style="color: rgb(239, 240, 238);">
+            <p>Working Hours : <br> Monday to Friday <br> from 8am till 5pm <br> Saturday from 8am till 1pm
+              Delivering
+              across Lebanon <br> within 24 to 72 hours <br> Range 4$ - 8$</p>
+          </div>
+          <form class="col-md-8 g-3 gx-5 needs-validation bg-dark pt-4 pb-2 my-4 mx-auto rounded" novalidate>
+
+            <div class="col-md-8 pb-3">
+              <div class="col-md-6 ">
+                <!-- <label for="selectedType" class="form-label bg-primary">Type</label> -->
+                <select name="type" id="selectedType" class="form-select" required>
+                  <option value="" selected disabled>Select Type</option>
+                  <option value="Food">Food</option>
+                  <option value="Clothes">Clothes</option>
+                  <option value="Electronics">Electronics</option>
+
+                </select>
+              </div><br>
+
+              <div class="col-12 ">
+                <input type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
+                  required>
+                <div class="valid-feedback">
+                  looks good
+                </div>
+              </div><br>
+              <div class="col-12 ">
+                <input type="text" class="form-control rounded-pill" id="DropOffLocation"
+                  placeholder="Drop-off Location" required>
+                <div class="valid-feedback">
+                  looks good
+                </div>
+              </div><br>
+              <div class="col-md-6 ">
+                <input type="text" class="form-control rounded-pill" id="Mobile" placeholder="Name of recipient"
+                  required>
+                <div class="valid-feedback">
+                  looks good
+                </div>
+              </div><br>
+
+              <div class="col-12 ">
+
+                <input class="form-control rounded-pill" type="text" id="comments" placeholder="comments" required>
+                </label>
+
+              </div><br>
+              <div class="col-12">
+                <button type="submit" class="btn btn-warning rounded-pill">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
     <!-- BODY BodyPart4 -->

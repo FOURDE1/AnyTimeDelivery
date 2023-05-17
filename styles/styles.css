@@ -273,7 +273,7 @@ select.noStyle {
 
 .BodyPart3 {
   background-color: #FF6969;
-  height: 60vh;
+  /* height: 60vh; */
   width: 100%;
 }
 
