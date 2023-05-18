@@ -26,29 +26,18 @@
 </head>
 
 <body>
-  <!-- NavBar -->
-  <div class="topDiv  bg-dark p-3  text-white">
-    <div class="flexMain">
-      <div class="flex1">
 
-      </div>
-      <div class="flex2 text-center">
-        <div></div>
-      </div>
-      <div class="flex1">
 
-      </div>
-    </div>
-  </div>
   <!-- Menu  -->
   <div id="menuHolder">
     <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
-      <div class="flexMain">
+      <div class="flexMain ">
         <div class="flex2">
           <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()"><i
               class="fas fa-bars me-2"></i> MENU</button>
         </div>
         <div class="flex3 text-center" id="siteBrands">
+
           <div class="container">
             <img width="200px" id="my-image" style="margin: 0;" src="images/logo-cropped.svg" alt="SVG Image">
           </div>
@@ -94,8 +83,20 @@
       </div>
     </div>
   </div>
+  <!-- NavBar -->
+  <div class="topDiv  bg-dark p-1  text-white">
+    <div class="flexMain">
+      <div class="flex1">
 
+      </div>
+      <div class="flex2 text-center">
+        <div></div>
+      </div>
+      <div class="flex1">
 
+      </div>
+    </div>
+  </div>
   <!-- BODY -->
 
   <Main>
@@ -129,12 +130,12 @@
     <div class="BodyPart2 container-fluid row d-flex justify-content-center align-items-center">
       <div id="carousel" class="">
 
-        <div class="prev text-center ">
+        <div id="signUpIcon" class="prev text-center ">
           <img width="20px" src="images/Storefront.svg" alt="not working">
           <h2 display="block">Sign Up & Login</h2>
         </div>
 
-        <div class="selected text-center ">
+        <div id="TryService" class="selected text-center ">
           <img src="images/ScootScoot.svg" alt="not working">
           <h2 display="block">Try Our Service</h2>
         </div>
@@ -148,152 +149,187 @@
       </div>
     </div>
 
-    <!-- <div class="BodyPart2 container-fluid row d-flex justify-content-center align-items-center">
-      <div id="carousel" class="col-md-8">
-
-        <div class="prev text-center col-md-4">
-          <img width="20px" src="images/Storefront.svg" alt="not working">
-          <h2 display="block">Sign Up & Login</h2>
-        </div>
-
-        <div class="selected text-center col-md-4">
-          <img src="images/ScootScoot.svg" alt="not working">
-          <h2 display="block">Try Our Service</h2>
-        </div>
-
-        <div class="next text-center monyImage col-md-4">
-
-          <img src="images/money-bag.png" alt="not working">
-          <h2 display="block">Deliver and Earn</h2>
-        </div>
 
 
 
-      </div>
-
-
-
-    </div> -->
-
-
-
-    <!-- <div class="container my-5  py-5">
-        <div class="row align-items-center">
-          <div class="col-md-4 text-center ">
-            <img src="images/ScootScoot.svg" alt="Become a Dasher">
-            <div>
-              <h2 display="block">Deliver and Earn</h2>
-              <h4 display="block">As a delivery driver, you'll make reliable money—working anytime, anywhere.</h3>
-                <button class="btn btn-primary">
-                  <span display="block" color="TextAction">Start earning</span>
-                  <div></div>
-                </button>
-            </div>
-          </div>
-
-          <div class="col-md-4 text-center">
-            <img src="images/HomePic.png" alt="Become a Partner">
-            <div>
-              <h2 display="block">Become a Partner</h2>
-              <h4 display="block">Grow your business and reach new customers by partnering with us.</h3>
-                <button class="btn btn-primary">
-                  <span display="block" color="TextAction">Sign up your store</span>
-                  <div></div>
-                </button>
-            </div>
-          </div>
-
-          <div class="col-md-4 text-center">
-            <img src="images/ScootScoot.svg" alt="Try the App">
-            <div>
-              <h2 display="block">Try the App</h2>
-              <h4 display="block">Experience the best your neighborhood has to offer, all in one app.</h3>
-                <button class="btn btn-primary">
-                  <span display="block" color="TextAction">Get the app</span>
-                  <div></div>
-                </button>
-            </div>
-          </div>
-        </div>
-      </div> -->
 
 
 
 
     <!-- BODY PART 3 -->
-    <div class="BodyPart3 container-fluid justify-content-center">
-      <!-- <div class="container " onclick="onclick">
-        <div class="top"></div>
-        <div class="bottom"></div>
-        <div class="center">
-          <h2>Please Sign In</h2>
-          <input type="email" placeholder="email"/>
-          <input type="password" placeholder="password"/>
-          <h2>&nbsp;</h2>
-        </div>
-      </div> -->
-      <div class="container mt-3" style="background-color: rgb(255, 183, 0)">
-        <div class="d-block text-center pt-4 pb-2" style="color:rgb(255, 0, 0) ;">
+    <div class="BodyPart3 container-fluid justify-content-center hiddenP3">
+
+      <div id="OurService" class="container mt-3" hidden>
+        <div class="d-block text-center pt-4 pb-2">
           <h2 class="">Order A Service</h2>
         </div>
         <div class="row">
 
-          <div class="col-md-3 h5 d-none d-md-block mt-5 px-5" style="color: rgb(239, 240, 238);">
-            <p>Working Hours : <br> Monday to Friday <br> from 8am till 5pm <br> Saturday from 8am till 1pm
-              Delivering
-              across Lebanon <br> within 24 to 72 hours <br> Range 4$ - 8$</p>
+
+          <div class="container  col-md-4">
+            <h2>Category Prices</h2>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Category</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Electronics</td>
+                  <td>$100</td>
+                </tr>
+                <tr>
+                  <td>Automotive</td>
+                  <td>$50</td>
+                </tr>
+                <tr>
+                  <td>Office supplies</td>
+                  <td>$20</td>
+                </tr>
+                <tr>
+                  <td>Sports and outdoor</td>
+                  <td>$30</td>
+                </tr>
+                <tr>
+                  <td>Health and beauty</td>
+                  <td>$15</td>
+                </tr>
+                <tr>
+                  <td>Home and household</td>
+                  <td>$25</td>
+                </tr>
+                <tr>
+                  <td>Food and groceries</td>
+                  <td>$10</td>
+                </tr>
+                <tr>
+                  <td>Clothing and fashion</td>
+                  <td>$35</td>
+                </tr>
+
+              </tbody>
+            </table>
           </div>
-          <form class="col-md-8 g-3 gx-5 needs-validation bg-dark pt-4 pb-2 my-4 mx-auto rounded" novalidate>
+
+          <form style="background-color:#C5D5D9"
+            class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" novalidate>
 
             <div class="col-md-8 pb-3">
               <div class="col-md-6 ">
                 <!-- <label for="selectedType" class="form-label bg-primary">Type</label> -->
-                <select name="type" id="selectedType" class="form-select" required>
+                <select name="type" id="selectedType" class="form-select rounded-pill" required>
                   <option value="" selected disabled>Select Type</option>
-                  <option value="Food">Food</option>
-                  <option value="Clothes">Clothes</option>
                   <option value="Electronics">Electronics</option>
+                  <option value="Clothing and fashion">Clothing and fashion</option>
+                  <option value="Food and groceries">Food and groceries</option>
+                  <option value="Home and household">Home and household</option>
+                  <option value="Health and beauty">Health and beauty</option>
+                  <option value="Office supplies">Office supplies</option>
+                  <option value="Automotive">Automotive</option>
 
                 </select>
-              </div><br>
-
-              <div class="col-12 ">
-                <input type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
-                  required>
-                <div class="valid-feedback">
-                  looks good
-                </div>
-              </div><br>
-              <div class="col-12 ">
-                <input type="text" class="form-control rounded-pill" id="DropOffLocation"
-                  placeholder="Drop-off Location" required>
-                <div class="valid-feedback">
-                  looks good
-                </div>
-              </div><br>
-              <div class="col-md-6 ">
-                <input type="text" class="form-control rounded-pill" id="Mobile" placeholder="Name of recipient"
-                  required>
-                <div class="valid-feedback">
-                  looks good
-                </div>
-              </div><br>
-
-              <div class="col-12 ">
-
-                <input class="form-control rounded-pill" type="text" id="comments" placeholder="comments" required>
-                </label>
-
-              </div><br>
-              <div class="col-12">
-                <button type="submit" class="btn btn-warning rounded-pill">Submit</button>
+              </div>
+              <div class="col-md-6 p-2 ">
+                <label for="OrderDate ml-2">Order Date:</label>
+                <input class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate" class="form-control" >
               </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
+            <div class="col-md-6 ">
+              <input type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
+                required>
+              <div class="valid-feedback">
+                looks good
+              </div>
+            </div><br>
 
+            <div class="col-12 ">
+              <input type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
+                required>
+              <div class="valid-feedback">
+                looks good
+              </div>
+            </div><br>
+            <div class="col-12 ">
+              <input type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
+                required>
+              <div class="valid-feedback">
+                looks good
+              </div>
+            </div><br>
+
+
+            <div class="col-12 ">
+
+              <textarea class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
+                placeholder="Comments" required></textarea>
+              </label>
+
+            </div><br>
+            <div class="col-12">
+              <button type="submit" class="btn btn-warning rounded-pill">Submit</button>
+            </div>
+        </div>
+        </form>
+      </div>
+      <section id="signupPart" class="gradient-form">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="card rounded-3 text-black">
+                <div class="row g-0">
+                  <div class="col-lg-6">
+                    <div class="card-body p-3">
+      
+                      <div class="text-center">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                          style="width: 100px;" alt="logo">
+                        <h4 class="mt-3 mb-4">The Lotus Team</h4>
+                      </div>
+      
+                      <form>
+                        <div class="mb-3">
+                          <input type="email" id="form2Example11" class="form-control" placeholder="Username" />
+                        </div>
+      
+                        <div class="mb-3">
+                          <input type="password" id="form2Example22" class="form-control" placeholder="Password" />
+                        </div>
+      
+                        <div class="text-center mb-3">
+                          <button class="btn btn-primary btn-block" type="button">Log in</button>
+                          <a class="text-muted" href="#!">Forgot password?</a>
+                        </div>
+      
+                        <div class="text-center">
+                          <p class="mb-2">Don't have an account?</p>
+                          <button type="button" class="btn btn-outline-danger">Create new</button>
+                        </div>
+                      </form>
+      
+                    </div>
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                    <div class="text-white px-3 py-4 p-md-4">
+                      <h4 class="mb-3">We are more than just a company</h4>
+                      <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      
+    </div>
+  
+   
     <!-- BODY BodyPart4 -->
     <div class="BodyPart4 container-fluid py-5">
       <!-- Testimoniols -->
@@ -305,6 +341,7 @@
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
               numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
               quisquam eum porro a pariatur veniam.
+
             </p>
           </div>
         </div>
@@ -413,6 +450,7 @@
           <p>Founded in 2023, our delivery service aims to bring convenience and joy to our customers' lives. We pride
             ourselves on reliability, speed, and top-notch customer service..</p>
         </div>
+
         <div class="col-md-4">
           <h4>Contact Us</h4>
           <p>126 Haret Hriek<br>Bierut, LEB 1100<br>Phone: 81 753 181<br>Email: info@AnyTimeDelivery.com</p>
@@ -437,14 +475,6 @@
   <div class="topDiv  bg-dark p-3  text-white "></div>
 
 
-  <!-- arrow SVG -->
-  <!-- :   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                  class="styles__StyledInlineSvg-sc-12l8vvi-0 djCUZq">
-                  <path
-                    d="M8.29289 11.2929C7.90237 11.6834 7.90237 12.3166 8.29289 12.7071C8.68342 13.0976 9.31658 13.0976 9.70711 12.7071L13.7071 8.70711C14.0976 8.31658 14.0976 7.68342 13.7071 7.29289L9.70711 3.29289C9.31658 2.90237 8.68342 2.90237 8.29289 3.29289C7.90237 3.68342 7.90237 4.31658 8.29289 4.70711L10.5858 7L3 7C2.44772 7 2 7.44771 2 8C2 8.55228 2.44772 9 3 9L10.5858 9L8.29289 11.2929Z"
-                    fill="#EB1700"></path>
-                </svg>         -->
 
 
   <!-- Javascript -->

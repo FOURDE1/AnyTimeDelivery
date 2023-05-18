@@ -4,11 +4,7 @@ function menuToggle(){
   if(menuHolder.className === "drawMenu") menuHolder.className = ""
   else menuHolder.className = "drawMenu"
 }
-if(window.innerWidth < 426) siteBrand.innerHTML = "MAS"
-window.onresize = function(){
-  if(window.innerWidth < 420) siteBrand.innerHTML = "MAS"
-  else siteBrand.innerHTML = "MY AWESOME WEBSITE"
-}
+
 
 
 // animation of logo 
@@ -29,7 +25,7 @@ function myFunction() {
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
       .forEach(function (form) {
-        form.addEventListener('click', function (event) {
+        form.addEventListener('input', function (event) {
           if (!form.checkValidity()) {
             event.preventDefault()
             event.stopPropagation()
@@ -39,7 +35,7 @@ function myFunction() {
         }, false)
       })
   })()
-  window.onload = function () {
+  window.oninput = function () {
     document.getElementById("password1").onchange = validatePassword;
     document.getElementById("password2").onchange = validatePassword;
   }
@@ -47,9 +43,10 @@ function myFunction() {
     var pass2 = document.getElementById("password2").value;
     var pass1 = document.getElementById("password1").value;
     if (pass1 =="")
-      document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+    document.getElementById("password1").setCustomValidity("cannot be empty");
+      
       else if(pass1 != pass2){
-        document.getElementById("password1").setCustomValidity("cannot be empty");
+        document.getElementById("password2").setCustomValidity("Passwords Don't Match");
       }
     else
       document.getElementById("password2").setCustomValidity('');

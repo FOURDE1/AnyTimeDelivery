@@ -83,7 +83,7 @@ function myFunction() {
   // Loop over them and prevent submission
   Array.prototype.slice.call(forms)
     .forEach(function (form) {
-      form.addEventListener('click', function (event) {
+      form.addEventListener('input', function (event) {
         if (!form.checkValidity()) {
           event.preventDefault()
           event.stopPropagation()
@@ -105,9 +105,17 @@ function myFunction() {
   //Our services
 
   document.getElementById("TryService").addEventListener("click",function(){
+    document.getElementById("signupPart").hidden=true;
     document.getElementById("OurService").hidden=false;
-
+    
+    
+  }) 
+  document.getElementById("signUpIcon").addEventListener("click",function(){
+    document.getElementById("OurService").hidden=true;
+    document.getElementById("signupPart").hidden=false;
+   
   })
 
+  
 
  

@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <title>Flip Image and Show Back Side Using Bootstrap and CSS</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-  <style>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <!-- <style>
     .flip-card {
       perspective: 1000px; /* Set the distance between the z-axis and the user */
     }
@@ -56,6 +58,26 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <button onclick="googleSignIn()" class="btn btn-primary">Sign up with Google</button>
+  <script>
+    function googleSignIn() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init({
+          client_id: 'YOUR_CLIENT_ID',
+        }).then(function() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signIn().then(function(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var email = profile.getEmail();
+            var name = profile.getName();
+            // Perform further actions with the user's email and name
+          });
+        });
+      });
+    }
+  </script>
+  
+ 
 </body>
 </html>
