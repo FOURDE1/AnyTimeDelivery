@@ -9,79 +9,82 @@
     <link rel="stylesheet" href="styles/registerStyles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
 
     <!-- NavBar -->
-  <div class="topDiv  bg-dark p-3  text-white">
-    <div class="flexMain">
-      <div class="flex1">
+    <div class="topDiv  bg-dark p-3  text-white">
+        <div class="flexMain">
+            <div class="flex1">
 
-      </div>
-      <div class="flex2 text-center">
-        <div></div>
-      </div>
-      <div class="flex1">
+            </div>
+            <div class="flex2 text-center">
+                <div></div>
+            </div>
+            <div class="flex1">
 
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- Menu  -->
-  <div id="menuHolder">
-    <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
-      <div class="flexMain">
-        <div class="flex2">
-          <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()"><i
-              class="fas fa-bars me-2"></i> MENU</button>
-        </div>
-        <div class="flex3 text-center" id="siteBrands">
-          <div class="container">
-            <img width="200px" id="my-image" style="margin: 0;" src="images/logo-cropped.svg" alt="SVG Image">
-          </div>
-        </div>
-        <div class="flex2 text-end d-block d-md-none">
-          <button class="whiteLink siteLink"><i class="fas fa-search"></i></button>
+    <!-- Menu  -->
+    <div id="menuHolder">
+        <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
+            <div class="flexMain">
+                <div class="flex2">
+                    <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()"><i
+                            class="fas fa-bars me-2"></i> MENU</button>
+                </div>
+                <div class="flex3 text-center" id="siteBrands">
+                    <div class="container">
+                        <img width="200px" id="my-image" style="margin: 0;" src="images/logo-cropped.svg"
+                            alt="SVG Image">
+                    </div>
+                </div>
+                <div class="flex2 text-end d-block d-md-none">
+                    <button class="whiteLink siteLink"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="flex2 text-end d-none d-md-block">
+                    <button class="whiteLink siteLink"><a style="text-decoration: none; color: inherit;"
+                            href="register.html">REGISTER</a></button>
+                    <button href="DeleveryLogin.html" class="Login  blackLink bg-dark siteLink"><a
+                            style="text-decoration: none; color: inherit;" href="SignUp.html">Login</a></button>
+                </div>
+            </div>
         </div>
 
-        <div class="flex2 text-end d-none d-md-block">
-          <button class="whiteLink siteLink"><a style="text-decoration: none; color: inherit;" href="register.html">REGISTER</a></button>
-          <button href="DeleveryLogin.html" class="Login  blackLink bg-dark siteLink"><a style="text-decoration: none; color: inherit;" href="SignUp.html">Login</a></button>
+        <div id="menuDrawer">
+            <div class="p-4 border-bottom">
+                <div class='row'>
+                    <div class="col">
+                        <select class="noStyle">
+                            <option value="english">English</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="french">French</option>
+                            <option value="italian">Italian</option>
+                            <option value="hebrew">Hebrew</option>
+                        </select>
+                    </div>
+                    <div class="col text-end ">
+                        <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="index.html" class="nav-menu-item"><i class="fas fa-home me-3"></i>Home</a>
+                <a href="#" class="nav-menu-item"><i class="fab fa-product-hunt me-3"></i>Products</a>
+                <a href="#" class="nav-menu-item"><i class="fas fa-search me-3"></i>Explore</a>
+                <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
+                <a href="#" class="nav-menu-item"><i class="fas fa-dollar-sign me-3"></i>Pricing</a>
+                <a href="#" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>Blog</a>
+                <a href="#" class="nav-menu-item"><i class="fas fa-building me-3"></i>About Us</a>
+            </div>
         </div>
-      </div>
     </div>
-
-    <div id="menuDrawer">
-      <div class="p-4 border-bottom">
-        <div class='row'>
-          <div class="col">
-            <select class="noStyle">
-              <option value="english">English</option>
-              <option value="arabic">Arabic</option>
-              <option value="french">French</option>
-              <option value="italian">Italian</option>
-              <option value="hebrew">Hebrew</option>
-            </select>
-          </div>
-          <div class="col text-end ">
-            <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
-          </div>
-        </div>
-      </div>
-      <div>
-        <a href="index.html" class="nav-menu-item"><i class="fas fa-home me-3"></i>Home</a>
-        <a href="#" class="nav-menu-item"><i class="fab fa-product-hunt me-3"></i>Products</a>
-        <a href="#" class="nav-menu-item"><i class="fas fa-search me-3"></i>Explore</a>
-        <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
-        <a href="#" class="nav-menu-item"><i class="fas fa-dollar-sign me-3"></i>Pricing</a>
-        <a href="#" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>Blog</a>
-        <a href="#" class="nav-menu-item"><i class="fas fa-building me-3"></i>About Us</a>
-      </div>
-    </div>
-  </div>
     <!--
         first part ****************************************************************************************************************************
     -->
@@ -125,14 +128,14 @@
             </div>
         </div>
     </div> -->
-   
+
 
 
 
 
     <!-- ----------------------------------------------------- -->
 
- 
+
 
     <!-- <div class="container">
         <div class="card-group mt-5">
@@ -174,7 +177,7 @@
         second part ***************************************************************************************************************************
     -->
     <div class="container mt-5">
-        <h1 class="text-center text-success pb-3">How much i will earn </h1>
+        <h1 class="text-center text-success pb-3">How much I will earn </h1>
 
         <!-- <div class="mx-auto" style="width: 200px;"> -->
         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" fill="currentColor"
@@ -303,7 +306,7 @@
                 <div class="container mx-auto mt-5">
 
 
-                    <form class="row g-3 needs-validation" novalidate>
+                    <form class="row g-3" id="form" >
                         <div class="col-md-6 col-xs-12 col-sm-12">
                             <label for="validationCustom01" class="form-label">First name</label>
                             <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
@@ -359,9 +362,9 @@
                         </div>
                         <div class="col-12">
                             <label for="password2" class="form-label text-center">Confirm Password:</label>
-                            <input type="password" class="form-control" id="password2" required/>
+                            <input type="password" class="form-control" id="password2" required />
                             <div class="invalid-feedback">
-                                passwords dont match
+
                             </div>
                         </div>
 
@@ -390,34 +393,35 @@
     -->
     <footer class="FooterPart container-fluid ">
         <div class="container py-2">
-          <div class="row">
-            <div class="col-md-4">
-              <h4>About Us</h4>
-              <p>Founded in 2023, our delivery service aims to bring convenience and joy to our customers' lives. We pride
-                ourselves on reliability, speed, and top-notch customer service..</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>About Us</h4>
+                    <p>Founded in 2023, our delivery service aims to bring convenience and joy to our customers' lives.
+                        We pride
+                        ourselves on reliability, speed, and top-notch customer service..</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contact Us</h4>
+                    <p>126 Haret Hriek<br>Bierut, LEB 1100<br>Phone: 81 753 181<br>Email: info@AnyTimeDelivery.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Connect with Us</h4>
+                    <a href="https://www.linkedin.com/in/hossien-raad-326a71227/" class="btn btn-linkedin"><i
+                            class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="#" class="btn btn-twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="btn btn-instagram"><i class="bi bi-instagram"></i></a>
+                </div>
             </div>
-            <div class="col-md-4">
-              <h4>Contact Us</h4>
-              <p>126 Haret Hriek<br>Bierut, LEB 1100<br>Phone: 81 753 181<br>Email: info@AnyTimeDelivery.com</p>
+            <hr>
+            <div class="row ">
+                <div class="col-md-12">
+                    <p>&copy; 2023 Our Delivery Company. All rights reserved.</p>
+                </div>
             </div>
-            <div class="col-md-4">
-              <h4>Connect with Us</h4>
-              <a href="https://www.linkedin.com/in/hossien-raad-326a71227/" class="btn btn-linkedin"><i
-                  class="bi bi-linkedin"></i>
-              </a>
-              <a href="#" class="btn btn-twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="btn btn-instagram"><i class="bi bi-instagram"></i></a>
-            </div>
-          </div>
-          <hr>
-          <div class="row ">
-            <div class="col-md-12">
-              <p>&copy; 2023 Our Delivery Company. All rights reserved.</p>
-            </div>
-          </div>
         </div>
-      </footer>
-      <div class="topDiv  bg-dark p-3  text-white "></div>
+    </footer>
+    <div class="topDiv  bg-dark p-3  text-white "></div>
     <script src="javascript/registerJs.js"></script>
 </body>
 
