@@ -1,16 +1,17 @@
 ﻿using DeliverySite.Data;
 using DeliverySite.Models;
+using DeliverySite.Repos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Controllers;
 
 public class SignUpController : Controller
 {
-    private readonly ApplicationDbContext _db;
-    
-    public SignUpController(ApplicationDbContext db)
+    private readonly SignUpRepo _ordersRepo;
+
+    public SignUpController(SignUpRepo ordersRepo)
     {
-        _db = db;
+        _ordersRepo = ordersRepo;
     }
     public IActionResult Register()
     {
@@ -27,8 +28,7 @@ public class SignUpController : Controller
         // {
         //     return View("Register", obj);
         // }
-        await _db.RegisterApps.AddAsync(obj);
-        await _db.SaveChangesAsync();
+        await _ordersRepo.CreateRegisterAppAsync(obj);
         TempData["Success"] = "category created successfully";
         return RedirectToAction("Register");
     }
