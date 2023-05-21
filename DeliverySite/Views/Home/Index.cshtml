@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Order
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -89,115 +90,121 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
 <div id="targetDiv" class="BodyPart3 container-fluid justify-content-center hiddenP3 ">
 
 <div id="OurService" class="container mt-3" >
-    <div class="d-block text-center pt-4 pb-2">
-        <h2 class="">Order A Service</h2>
-    </div>
-    <div class="row">
+        <div class="d-block text-center pt-4 pb-2">
+            <h2 class="">Order A Service</h2>
+        </div>
+        <div class="row">
 
 
-        <div class="container  col-md-4">
-            <h2>Category Prices</h2>
-            <table class="table">
-                <thead class="thead-dark">
-                <tr>
-                    <th>Category</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Electronics</td>
-                    <td>$100</td>
-                </tr>
-                <tr>
-                    <td>Automotive</td>
-                    <td>$50</td>
-                </tr>
-                <tr>
-                    <td>Office supplies</td>
-                    <td>$20</td>
-                </tr>
-                <tr>
-                    <td>Sports and outdoor</td>
-                    <td>$30</td>
-                </tr>
-                <tr>
-                    <td>Health and beauty</td>
-                    <td>$15</td>
-                </tr>
-                <tr>
-                    <td>Home and household</td>
-                    <td>$25</td>
-                </tr>
-                <tr>
-                    <td>Food and groceries</td>
-                    <td>$10</td>
-                </tr>
-                <tr>
-                    <td>Clothing and fashion</td>
-                    <td>$35</td>
-                </tr>
+            <div class="container  col-md-4">
+                <h2>Category Prices</h2>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Electronics</td>
+                        <td>$100</td>
+                    </tr>
+                    <tr>
+                        <td>Automotive</td>
+                        <td>$50</td>
+                    </tr>
+                    <tr>
+                        <td>Office supplies</td>
+                        <td>$20</td>
+                    </tr>
+                    <tr>
+                        <td>Sports and outdoor</td>
+                        <td>$30</td>
+                    </tr>
+                    <tr>
+                        <td>Health and beauty</td>
+                        <td>$15</td>
+                    </tr>
+                    <tr>
+                        <td>Home and household</td>
+                        <td>$25</td>
+                    </tr>
+                    <tr>
+                        <td>Food and groceries</td>
+                        <td>$10</td>
+                    </tr>
+                    <tr>
+                        <td>Clothing and fashion</td>
+                        <td>$35</td>
+                    </tr>
 
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
 
-        <form style="background-color:#C5D5D9"
-              class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" novalidate/>
-        <div class="col-md-8 pb-3">
-            <div class="col-md-6 ">
-                <!-- <label for="selectedType" class="form-label bg-primary">Type</label> -->
-                <select name="type" id="selectedType" class="form-select rounded-pill" required>
-                    <option value="" selected disabled>Select Type</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Clothing and fashion">Clothing and fashion</option>
-                    <option value="Food and groceries">Food and groceries</option>
-                    <option value="Home and household">Home and household</option>
-                    <option value="Health and beauty">Health and beauty</option>
-                    <option value="Office supplies">Office supplies</option>
-                    <option value="Automotive">Automotive</option>
-                </select>
-            </div>
-            <div class="col-md-6 p-2 ">
-                <label for="OrderDate">Order Date:</label>
-                <input class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate" class="form-control">
-            </div>
-        </div>
-        <div class="col-md-6 ">
-            <input type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
-                   required>
-            <div class="valid-feedback">
-                looks good
-            </div>
-        </div>
-        <br>
-        <div class="col-12 ">
-            <input type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
-                   required>
-            <div class="valid-feedback">
-                looks good
-            </div>
-        </div>
-        <br>
-        <div class="col-12 ">
-            <input type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
-                   required>
-            <div class="valid-feedback">
-                looks good
-            </div>
-        </div>
-        <br>
-        <div class="col-12 ">
-            <textarea class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
+            <form method="post" asp-controller="Home" asp-action="CreateOrder" style="background-color:#C5D5D9"
+                  class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" novalidate>
+
+                <div class="col-md-8 pb-3">
+                    <div class="col-md-6 ">
+                        <!-- <label for="selectedType" class="form-label bg-primary">Type</label> -->
+                        <select asp-for="Type" name="type" id="selectedType" class="form-select rounded-pill" required>
+                            <option value="" selected disabled>Select Type</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Clothing and fashion">Clothing and fashion</option>
+                            <option value="Food and groceries">Food and groceries</option>
+                            <option value="Home and household">Home and household</option>
+                            <option value="Health and beauty">Health and beauty</option>
+                            <option value="Office supplies">Office supplies</option>
+                            <option value="Automotive">Automotive</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-6 p-2 ">
+                        <label asp-for="OrderDate" >Order Date:</label>
+                        <input asp-for="OrderDate" class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <input asp-for="NameOfRecipient" type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
+                           required>
+                    <div class="valid-feedback">
+                        looks good
+                    </div>
+                </div><br>
+
+                <div class="col-12 ">
+                    <input asp-for="PickUpLocation" type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
+                           required>
+                    <div class="valid-feedback">
+                        looks good
+                    </div>
+                </div><br>
+                <div class="col-12 ">
+                    <input asp-for="DropOffLocation" type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
+                           required>
+                    <div class="valid-feedback">
+                        looks good
+                    </div>
+                </div><br>
+
+
+                <div class="col-12 ">
+
+                    <textarea  asp-for="Comments" class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
                 placeholder="Comments" required></textarea>
-        </div>
-        <br>
-        <div class="col-12">
-            <button type="submit" class="btn btn-warning rounded-pill">Submit</button>
+
+
+                </div><br>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-warning rounded-pill">Submit</button>
+                </div>
+
+            </form>
         </div>
     </div>
-       
-</div>
 
     <div class="row justify-content-center" >
     
