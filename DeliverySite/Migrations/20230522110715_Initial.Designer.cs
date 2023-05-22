@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliverySite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230521211232_AddMigrationsToDataBase")]
-    partial class AddMigrationsToDataBase
+    [Migration("20230522110715_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

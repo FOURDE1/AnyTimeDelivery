@@ -15,6 +15,7 @@ builder.Services.AddScoped<SignUpRepo>();
 builder.Services.AddScoped<LoginRepo>();
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
