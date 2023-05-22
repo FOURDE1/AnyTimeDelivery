@@ -7,11 +7,11 @@ namespace DeliverySite.Controllers;
 
 public class SignUpController : Controller
 {
-    private readonly SignUpRepo _ordersRepo;
+    private readonly SignUpRepo _signUpRepo;
 
-    public SignUpController(SignUpRepo ordersRepo)
+    public SignUpController(SignUpRepo signUpRepo)
     {
-        _ordersRepo = ordersRepo;
+        _signUpRepo = signUpRepo;
     }
     public IActionResult Register()
     {
@@ -28,7 +28,7 @@ public class SignUpController : Controller
         // {
         //     return View("Register", obj);
         // }
-        await _ordersRepo.CreateRegisterAppAsync(obj);
+        await _signUpRepo.CreateRegisterAppAsync(obj);
         TempData["Success"] = "category created successfully";
         return RedirectToAction("Register");
     }

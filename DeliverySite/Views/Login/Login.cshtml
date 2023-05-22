@@ -18,7 +18,7 @@
         </div>
         <div class="col-6 text-end">
             <a asp-controller="Home" asp-action="index" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> &nbsp; Create New Order
+                <i class="bi bi-plus-circle"></i> &nbsp; See your orders
             </a>
         </div>
     </div>
@@ -66,18 +66,11 @@
 
                     <td>
                         <div class="w-75 btn-group" role="group">
-                            <a asp-controller="Home" method="post" asp-action="EditOrder" asp-route-id="@obj.Id"
-                               class="btn btn-primary m-2">
-                                <i class="bi bi-pencil-square"></i> Edit
+                            <a asp-controller=""  asp-action="" asp-route-id=""
+                               class="btn btn-success m-2">
+                                <i class="bi bi-pencil-square"></i> Take Order
                             </a>
                         </div>
-                        <div class="w-75 btn-group" role="group">
-                            <a asp-controller="Home" method="post" asp-action="DeleteOrder"  asp-route-id="@obj.Id"
-                               class="btn btn-danger m-2">
-                                <i class="bi bi-trash"></i> Delete
-                            </a>
-                        </div>
-
                     </td>
                 </tr>
             }

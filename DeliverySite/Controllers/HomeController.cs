@@ -64,30 +64,13 @@ public class Home : Controller
     [HttpGet]
     public async Task<IActionResult> EditOrder(int id)
     {
-        var Order = await _ordersRepo.GetOrderByIdAsync(id);
-        if (id == null || Order == null)
-        {
-            return NotFound();
-        }
-
-        var updatedOrder = new Order()
-        {
-            Id = Order.Id,
-            Type = Order.Type,
-            OrderDate = Order.OrderDate,
-            NameOfRecipient = Order.NameOfRecipient,
-            DropOffLocation = Order.DropOffLocation,
-            PickUpLocation = Order.PickUpLocation,
-            Comments = Order.Comments
-        };
-        _ordersRepo.DeleteAsync(id);
-
-
-        return View(updatedOrder);
+        var order = await _ordersRepo.GetOrderByIdAsync(id);
+        
+        return View(order);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Edit(Order order)
+    public async Task<IActionResult> EditOrder(Order order)
     {
         if (!ModelState.IsValid)
         {

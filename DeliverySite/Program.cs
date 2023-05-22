@@ -12,6 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 ));
 builder.Services.AddScoped<OrdersRepo>();
 builder.Services.AddScoped<SignUpRepo>();
+builder.Services.AddScoped<LoginRepo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

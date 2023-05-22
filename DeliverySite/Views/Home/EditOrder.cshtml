@@ -1,7 +1,7 @@
 ﻿@model Order
 
 
-<form method="post" asp-controller="Home" asp-action="Edit" style="background-color:#C5D5D9"
+<form method="post" asp-controller="Home" asp-action="EditOrder" style="background-color:#C5D5D9"
       class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" novalidate>
 
     <div class="col-md-8 pb-3">
@@ -58,7 +58,10 @@
     </div><br>
     <div class="col-12">
         <button type="submit" class="btn btn-warning rounded-pill">Submit</button>
+        <a asp-controller="Home" asp-action="getAllOrders" class="btn btn-secondary rounded-pill" style="width:150px">
+                        Back to List</a>
     </div>
+    
 
 </form>
 
