@@ -5,6 +5,7 @@
     background: linear-gradient(to bottom, #a6d0dd, #f4f3f3);
     font-family: 'Open Sans', sans-serif;
 }
+
 .flexMain {
     display: flex;
     align-items: center
@@ -79,11 +80,11 @@ button.siteLink {
     background: #fff;
 }
 
-.drawMenu>#menuDrawer {
+.drawMenu > #menuDrawer {
     transform: translateX(0%);
 }
 
-.drawMenu>#mainNavigation {
+.drawMenu > #mainNavigation {
     transform: translateX(25%);
 }
 
@@ -113,11 +114,10 @@ select.noStyle {
 }
 
 
-
-
-h1,h2,h3,h4,h5 {
+h1, h2, h3, h4, h5 {
     font-family: 'Montserrat', sans-serif;
 }
+
 /* part 2 css*/
 .imgHiding:hover img {
     opacity: 0.4;
@@ -138,6 +138,7 @@ h1,h2,h3,h4,h5 {
     /* background-color: chartreuse; */
     color: rgb(5, 124, 45);
 }
+
 /*end part 2 css*/
 .card {
     border: none;
@@ -147,7 +148,7 @@ h1,h2,h3,h4,h5 {
 /* footer */
 .FooterPart {
     background-color: #FFD3B0;
-    
+
 }
 
 /*validation*/

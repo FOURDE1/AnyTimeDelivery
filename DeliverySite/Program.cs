@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using DeliverySite.Data;
 using DeliverySite.Repos;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +13,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.AddScoped<OrdersRepo>();
 builder.Services.AddScoped<SignUpRepo>();
 builder.Services.AddScoped<LoginRepo>();
+builder.Services.AddScoped<DeliverRepo>();
+
 var app = builder.Build();
 
 
@@ -32,7 +34,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    "default",
+    "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

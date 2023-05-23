@@ -25,6 +25,7 @@ body {
         left: 0%;
     }
 }
+
 /* logo animation */
 
 #my-image {
@@ -53,7 +54,6 @@ body {
 }
 
 
-
 .BodyPart2 {
     width: 100%;
     height: 80vh;
@@ -61,8 +61,6 @@ body {
 
     overflow-x: auto;
 }
-
-
 
 
 /* Cards editon */
@@ -174,13 +172,7 @@ body {
 } */
 
 
-
-
-
 /* Login page  */
-
-
-
 
 
 #login {
@@ -225,7 +217,7 @@ body {
     background: #fff;
     background-image: linear-gradient(top, #fff, #eee);
     padding: 15px;
-    box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .9);
     border-radius: 3px 0 3px 3px;
 }
 
@@ -259,7 +251,7 @@ body {
     background-color: #d14545;
     background-image: linear-gradient(top, #e97171, #d14545);
     border-radius: 3px;
-    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3),
     0 1px 0 rgba(255, 255, 255, 0.3) inset;
     border: 1px solid #7e1515;
@@ -313,6 +305,7 @@ body {
         height: 100vh !important;
     }
 }
+
 @media (min-width: 769px) {
     .gradient-custom-2 {
         border-top-right-radius: .3rem;

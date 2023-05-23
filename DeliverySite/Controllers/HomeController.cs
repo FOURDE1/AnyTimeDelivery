@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using DeliverySite.Models;
+﻿using DeliverySite.Models;
 using DeliverySite.Repos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Controllers;
 
@@ -35,15 +35,13 @@ public class Home : Controller
         try
         {
             if (ModelState.IsValid)
-            {
                 await _ordersRepo.AddAsync(order);
-                Console.WriteLine("Order added successfully."); // Debug statement
-            }
+            else
+                return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error adding order: {ex.Message}"); // Debug statement
-            throw new Exception("Error in creating form", ex);
         }
 
         // return RedirectToAction(nameof(getAllOrders));
@@ -54,9 +52,9 @@ public class Home : Controller
 
 
     [HttpGet]
-    public  IActionResult getAllOrders()
+    public IActionResult getAllOrders()
     {
-        var orders =  _ordersRepo.GetAllOrders();
+        var orders = _ordersRepo.GetAllOrders();
         return View(orders);
     }
 
@@ -65,7 +63,7 @@ public class Home : Controller
     public async Task<IActionResult> EditOrder(int id)
     {
         var order = await _ordersRepo.GetOrderByIdAsync(id);
-        
+
         return View(order);
     }
 
@@ -110,19 +108,11 @@ public class Home : Controller
     [HttpPost]
     public async Task<IActionResult> Delete(int id)
     {
-        Order order = await _ordersRepo.GetOrderByIdAsync(id);
-        if (order == null)
-        {
-            return View("Error");
-        }
+        var order = await _ordersRepo.GetOrderByIdAsync(id);
+        if (order == null) return View("Error");
 
-        if (ModelState.IsValid)
-        {
-            await _ordersRepo.DeleteAsync(id);
-        }
+        if (ModelState.IsValid) await _ordersRepo.DeleteAsync(id);
 
         return RedirectToAction(nameof(getAllOrders));
     }
-
-  
 }

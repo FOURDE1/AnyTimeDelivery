@@ -73,11 +73,11 @@ button.siteLink {
     background: #fff;
 }
 
-.drawMenu>#menuDrawer {
+.drawMenu > #menuDrawer {
     transform: translateX(0%);
 }
 
-.drawMenu>#mainNavigation {
+.drawMenu > #mainNavigation {
     transform: translateX(25%);
 }
 
@@ -107,15 +107,9 @@ select.noStyle {
 }
 
 
-
-
-
-
 /* footer */
 .FooterPart {
     background-color: #FFD3B0;
-
-
 
 
 }

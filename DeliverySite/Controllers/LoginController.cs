@@ -1,5 +1,4 @@
-﻿using DeliverySite.Models;
-using DeliverySite.Repos;
+﻿using DeliverySite.Repos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Controllers;
@@ -12,8 +11,7 @@ public class LoginController : Controller
     {
         _loginRepo = loginRepo;
     }
-  
-    
+
 
     // public async Task<IActionResult> LoginAsync(string username,string password)
     // {
@@ -29,7 +27,7 @@ public class LoginController : Controller
 
     public IActionResult Login()
     {
-        var orders =  _loginRepo.GetAllOrders();
+        var orders = _loginRepo.GetAllOrders();
         return View(orders);
     }
 }

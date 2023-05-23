@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 namespace DeliverySite.Models;
+
 public class Order
 {
     [Key] public int Id { get; set; }

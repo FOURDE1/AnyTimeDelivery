@@ -1,9 +1,9 @@
 ﻿const menuHolder = document.getElementById('menuHolder')
-function menuToggle(){
-    if(menuHolder.className === "drawMenu") menuHolder.className = ""
+
+function menuToggle() {
+    if (menuHolder.className === "drawMenu") menuHolder.className = ""
     else menuHolder.className = "drawMenu"
 }
-
 
 
 // animation of logo 
@@ -16,9 +16,9 @@ function myFunction() {
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 
-$(document).ready(function() {
+$(document).ready(function () {
     // Form validation
-    $('form.needs-validation').submit(function(event) {
+    $('form.needs-validation').submit(function (event) {
         // Prevent form submission if it's invalid
         if (!this.checkValidity()) {
             event.preventDefault();
@@ -30,7 +30,7 @@ $(document).ready(function() {
     });
 
     // Password validation
-    $('input[name="Password"]').on('keyup', function() {
+    $('input[name="Password"]').on('keyup', function () {
         const password = $(this).val();
 
         // Password should contain at least 8 characters
@@ -60,7 +60,7 @@ $(document).ready(function() {
     });
 
     // Confirm password match validation
-    $('input[name="VerifyPassword1"]').on('keyup', function() {
+    $('input[name="VerifyPassword1"]').on('keyup', function () {
         const password = $('input[name="Password"]').val();
         const confirmPassword = $(this).val();
 
@@ -72,10 +72,6 @@ $(document).ready(function() {
         }
     });
 });
-
-
-
-
 
 
 $(document).ready(function () {

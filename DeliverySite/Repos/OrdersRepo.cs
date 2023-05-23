@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using DeliverySite.Data;
+﻿using DeliverySite.Data;
 using DeliverySite.Models;
 
 namespace DeliverySite.Repos;
@@ -15,10 +12,10 @@ public class OrdersRepo
         _db = db;
     }
 
-    public  List<Order> GetAllOrders()
+    public List<Order> GetAllOrders()
     {
-        List<Order> ordersList = _db.Orders.ToList();
-        return  ordersList;
+        var ordersList = _db.Orders.ToList();
+        return ordersList;
     }
 
 
@@ -63,6 +60,4 @@ public class OrdersRepo
             throw;
         }
     }
-
-    
 }

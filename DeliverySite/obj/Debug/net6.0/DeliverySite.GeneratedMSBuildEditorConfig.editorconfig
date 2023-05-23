@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\user\OneDrive\Desktop\webProject\Capstone-project\DeliverySite
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Deliver/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Deliver/TakeOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlclxUYWtlT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Home/DeleteOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZWxldGVPcmRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

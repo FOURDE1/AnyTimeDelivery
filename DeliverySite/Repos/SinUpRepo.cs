@@ -1,6 +1,5 @@
 ﻿using DeliverySite.Data;
 using DeliverySite.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Repos;
 
@@ -16,6 +15,6 @@ public class SignUpRepo
     public async Task CreateRegisterAppAsync(RegisterApp registerApp)
     {
         _db.RegisterApps.Add(registerApp);
-         await _db.SaveChangesAsync();
+        await _db.SaveChangesAsync();
     }
 }

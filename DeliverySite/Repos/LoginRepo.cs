@@ -15,11 +15,11 @@ public class LoginRepo
     public async Task<RegisterApp?> FindUserNameAsync(string username)
     {
         return await _db.RegisterApps.FindAsync(username);
-
     }
-    public  List<Order> GetAllOrders()
+
+    public List<Order> GetAllOrders()
     {
-        List<Order> ordersList = _db.Orders.ToList();
-        return  ordersList;
+        var ordersList = _db.Orders.ToList();
+        return ordersList;
     }
 }

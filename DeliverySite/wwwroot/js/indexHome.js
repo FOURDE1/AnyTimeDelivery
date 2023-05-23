@@ -5,8 +5,9 @@
 
 var menuHolder = document.getElementById('menuHolder')
 var siteBrand = document.getElementById('siteBrand')
-function menuToggle(){
-    if(menuHolder.className === "drawMenu") menuHolder.className = ""
+
+function menuToggle() {
+    if (menuHolder.className === "drawMenu") menuHolder.className = ""
     else menuHolder.className = "drawMenu"
 }
 
@@ -49,8 +50,8 @@ function moveToSelected(element) {
 }
 
 // Eventos teclado
-$(document).keydown(function(e) {
-    switch(e.which) {
+$(document).keydown(function (e) {
+    switch (e.which) {
         case 37: // left
             moveToSelected('prev');
             break;
@@ -59,20 +60,21 @@ $(document).keydown(function(e) {
             moveToSelected('next');
             break;
 
-        default: return;
+        default:
+            return;
     }
     e.preventDefault();
 });
 
-$('#carousel div').click(function() {
+$('#carousel div').click(function () {
     moveToSelected($(this));
 });
 
-$('#prev').click(function() {
+$('#prev').click(function () {
     moveToSelected('prev');
 });
 
-$('#next').click(function() {
+$('#next').click(function () {
     moveToSelected('next');
 });
 

@@ -1,5 +1,4 @@
-﻿using DeliverySite.Data;
-using DeliverySite.Models;
+﻿using DeliverySite.Models;
 using DeliverySite.Repos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,13 +12,13 @@ public class SignUpController : Controller
     {
         _signUpRepo = signUpRepo;
     }
+
     public IActionResult Register()
     {
         return View();
     }
 
-    
-    
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> RegisterAsync(RegisterApp obj)
