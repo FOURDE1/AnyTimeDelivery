@@ -1,4 +1,5 @@
 ﻿@model RegisterApp
+
 <head>
     <title>Register</title>
     <link rel="stylesheet" href="~/css/registerStyles.css">
@@ -18,14 +19,14 @@
         <div class="col-6 d-flex justify-content-center">
             <input type="hidden" id="IsADelivery" name="IsADelivery"/>
 
-            <button id="deliveryButton" type="button" class="btn btn-primary btn-lg" onclick="setIsADelivery(true)">Delivery Worker</button>
+            <button id="deliveryButton" type="button" class="btn btn-primary btn-lg">Delivery Worker</button>
 
             <script>
                   function setIsADelivery(value) {
-                    var isADeliveryInput = document.getElementById('IsADelivery');
+                    const isADeliveryInput = document.getElementById('IsADelivery');
                     isADeliveryInput.value = value;
                   }
-                </script>
+            </script>
 
 
         </div>
@@ -35,6 +36,7 @@
 
 
 @* client section *@
+
 <div id="clientFormSection">
     <!-- Client registration form elements -->
     <!-- Place your client registration form elements here -->
@@ -46,141 +48,146 @@
                 <div class="container mx-auto mt-5">
 
 
-                    <form asp-controller="SignUp" asp-action="Register" method="post" class="row g-3 needs-validation" enctype="multipart/form-data" novalidate>
-                        <div class="col-md-6 col-xs-12 col-sm-12">
-                            <label asp-for="FirstName" class="form-label">First name</label>
-                            <input type="text" class="form-control" asp-for="FirstName" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12 col-sm-12">
-                            <label asp-for="LastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" asp-for="LastName" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12 col-sm-12">
-                            <label asp-for="UserName" class="form-label">Username</label>
-                            <div class="input-group has-validation">
-                                @{
-                                    var atSymbol = "@";
-                                }
-                                <span class="input-group-text">@atSymbol</span>
-                                <input asp-for="UserName" type="text" class="form-control"
-                                       aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
+                    <div class="row">
+                        <div class="col-2" id="feedbackDiv"></div>
+                        <form asp-controller="Account" asp-action="Register" method="post" class="row g-3 needs-validation col-10" enctype="multipart/form-data" novalidate>
+                            <div class="col-md-6 col-xs-12 col-sm-12">
+                                <label asp-for="FirstName" class="form-label">First name</label>
+                                <input type="text" class="form-control" asp-for="FirstName" required>
+                                <div class="valid-feedback">
+                                    Looks good!
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12 col-sm-12">
-                            <label asp-for="Email" class="form-label">Email address</label>
-                            <div class="input-group has-validation">
-                                <input asp-for="Email" type="email" class="form-control"
-                                       aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Please choose an email.
+                            <div class="col-md-6 col-xs-12 col-sm-12">
+                                <label asp-for="LastName" class="form-label">Last name</label>
+                                <input type="text" class="form-control" asp-for="LastName" required>
+                                <div class="valid-feedback">
+                                    Looks good!
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12 col-sm-12">
-                            <label asp-for="PhoneNb" class="form-label">Phone number</label>
-                            <div class="input-group has-validation">
-                                <input asp-for="PhoneNb" type="tel" class="form-control" id="" aria-describedby="inputGroupPrepend"
-                                       required>
-                                <div class="invalid-feedback">
-                                    Please enter a number.
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-6 col-xs-12 col-sm-12 mt-3">
-                            <label asp-for="NationalId" class="form-label">Enter your national ID</label>
-                            <div class="input-group has-validation">
-                                <input asp-for="NationalId" type="number" class="form-control" id="" required>
-                                <div class="invalid-feedback">
-                                    Please enter valid national ID.
+                            <div class="col-md-6 col-xs-12 col-sm-12">
+                                <label asp-for="UserName" class="form-label">Username</label>
+                                <div class="input-group has-validation">
+                                    @{
+                                        var atSymbol = "@";
+                                    }
+                                    <span class="input-group-text">@atSymbol</span>
+                                    <input asp-for="UserName" type="text" class="form-control"
+                                           aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">
+                                        Please choose a username.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 mx-auto text-center">
-
-                            <select asp-for="City" class="form-select mt-4" required>
-                                <option value="" selected disabled>Select City</option>
-                                <option value="Beirut">Beirut</option>
-                                <option value="Sour">Sour</option>
-                                <option value="Jbeil">Jbeil</option>
-                                <option value="Tripoli">Tripoli</option>
-                                <option value="Saida">Saida</option>
-                                <option value="Zahle">Zahle</option>
-                                <option value="Nabatieh">Nabatieh</option>
-                                <option value="Baalbek">Baalbek</option>
-                                <option value="Jounieh">Jounieh</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid state.
-                            </div>
-                        </div>
-                        <div class="col-md-6 mx-auto text-center">
-
-                            <select asp-for="Payment" class="form-select mt-4" required>
-                                <option value="" selected disabled>Select Payment</option>
-                                <option value="Visa">Visa</option>
-                                <option value="Master Card">Master Card</option>
-                                <option value="Paypal">Paypal</option>
-                                <option value="Wish Money">Wish Money</option>
-                                <option value="OMT">OMT</option>
-                                <option value="Binance">Binance</option>
-
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid Payment.
-                            </div>
-                        </div>
-
-
-                        <div class="col-12 mt-5">
-                            <label asp-for="Password" class="form-label text-center">Password</label>
-                            <input asp-for="Password" type="password" class="form-control" required/>
-                            <div class="invalid-feedback">
-                                Password must be at least 8 characters long.
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <label asp-for="VerifyPassword1" class="form-label text-center">Confirm Password:</label>
-                            <input asp-for="VerifyPassword1" type="password" class="form-control" required/>
-
-                            <div class="invalid-feedback">
-                                Passwords don't match.
-                            </div>
-                        </div>
-
-
-                        <div class="col-12">
-                            <div class="form-check mx-auto">
-                                <input class="form-check-input" type="checkbox" asp-for="TermsAndConditions" required data-val="true">
-                                <label class="form-check-label" asp-for="TermsAndConditions">
-                                    Agree to terms and conditions
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
+                            <div class="col-md-6 col-xs-12 col-sm-12">
+                                <label asp-for="Email" class="form-label">Email address</label>
+                                <div class="input-group has-validation">
+                                    <input asp-for="Email" type="email" class="form-control"
+                                           aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">
+                                        Please choose an email.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Apply</button>
-                        </div>
-                    </form>
+                            <div class="col-md-6 col-xs-12 col-sm-12">
+                                <label asp-for="PhoneNumber" class="form-label">Phone number</label>
+                                <div class="input-group has-validation">
+                                    <input asp-for="PhoneNumber" type="tel" class="form-control" id="" aria-describedby="inputGroupPrepend"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Please enter a number.
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-xs-12 col-sm-12 mt-3">
+                                <label asp-for="NationalId" class="form-label">Enter your national ID</label>
+                                <div class="input-group has-validation">
+                                    <input asp-for="NationalId" type="number" class="form-control" id="" required>
+                                    <div class="invalid-feedback">
+                                        Please enter valid national ID.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mx-auto text-center">
+
+                                <select asp-for="City" class="form-select mt-4" required>
+                                    <option value="" selected disabled>Select City</option>
+                                    <option value="Beirut">Beirut</option>
+                                    <option value="Sour">Sour</option>
+                                    <option value="Jbeil">Jbeil</option>
+                                    <option value="Tripoli">Tripoli</option>
+                                    <option value="Saida">Saida</option>
+                                    <option value="Zahle">Zahle</option>
+                                    <option value="Nabatieh">Nabatieh</option>
+                                    <option value="Baalbek">Baalbek</option>
+                                    <option value="Jounieh">Jounieh</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid state.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mx-auto text-center">
+
+                                <select asp-for="Payment" class="form-select mt-4" required>
+                                    <option value="" selected disabled>Select Payment</option>
+                                    <option value="Visa">Visa</option>
+                                    <option value="Master Card">Master Card</option>
+                                    <option value="Paypal">Paypal</option>
+                                    <option value="Wish Money">Wish Money</option>
+                                    <option value="OMT">OMT</option>
+                                    <option value="Binance">Binance</option>
+
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid Payment.
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 mt-5">
+                                <label asp-for="Password" class="form-label text-center">Password</label>
+                                <input asp-for="Password" type="password" class="form-control" required/>
+                                <small class="feedbackDiv"></small>
+                                <div class="invalid-feedback">
+                                    Password must be at least 8 characters long.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="VerifyPassword1" class="form-label text-center">Confirm Password:</label>
+                                <input asp-for="VerifyPassword1" type="password" class="form-control" required/>
+
+                                <div class="invalid-feedback">
+                                    Passwords don't match.
+                                </div>
+                            </div>
+
+
+                            <div class="col-12">
+                                <div class="form-check mx-auto">
+                                    <input class="form-check-input" type="checkbox" asp-for="TermsAndConditions" required data-val="true">
+                                    <label class="form-check-label" asp-for="TermsAndConditions">
+                                        Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree before submitting.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Apply</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-
             </div>
+
         </div>
     </div>
 </div>
+
 
 <div id="deliveryFormSection" style="display: none;">
 <!-- Delivery worker registration form elements -->
@@ -321,7 +328,7 @@
             <div class="container mx-auto mt-5">
 
 
-                <form asp-controller="SignUp" asp-action="Register" method="post" class="row g-3 needs-validation" novalidate>
+                <form asp-controller="Account" asp-action="Register" method="post" class="row g-3 needs-validation" novalidate>
                     <div class="col-md-6 col-xs-12 col-sm-12">
                         <label asp-for="FirstName" class="form-label">First name</label>
                         <input type="text" class="form-control" asp-for="FirstName" id="validationCustom01" required>
@@ -361,9 +368,9 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12 col-sm-12">
-                        <label asp-for="PhoneNb" class="form-label">Phone number</label>
+                        <label asp-for="PhoneNumber" class="form-label">Phone number</label>
                         <div class="input-group has-validation">
-                            <input asp-for="PhoneNb" type="tel" class="form-control" id="" aria-describedby="inputGroupPrepend"
+                            <input asp-for="PhoneNumber" type="tel" class="form-control" id="" aria-describedby="inputGroupPrepend"
                                    required>
                             <div class="invalid-feedback">
                                 Please enter a number.

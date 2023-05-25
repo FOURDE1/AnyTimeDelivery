@@ -1,5 +1,6 @@
 ﻿using DeliverySite.Models;
 using DeliverySite.Repos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Controllers;
@@ -15,12 +16,12 @@ public class Home : Controller
     }
 
     // GET
+    
     public IActionResult Index()
     {
         return View();
     }
-
-
+    [Authorize]
     [HttpGet]
     public IActionResult CreateOrder()
     {
@@ -28,6 +29,7 @@ public class Home : Controller
     }
 
     // OrderController
+    [Authorize]
     [HttpPost]
     // public async Task<IActionResult> createOrder(order Order)
     public async Task<RedirectToActionResult> CreateOrder(Order order)
@@ -51,7 +53,7 @@ public class Home : Controller
         return RedirectToAction(nameof(getAllOrders));
     }
 
-
+    [Authorize]
     [HttpGet]
     public IActionResult getAllOrders()
     {
@@ -59,7 +61,7 @@ public class Home : Controller
         return View(orders);
     }
 
-
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> EditOrder(int id)
     {
@@ -97,7 +99,7 @@ public class Home : Controller
         return RedirectToAction(nameof(getAllOrders));
     }
 
-
+    [Authorize]
     public async Task<IActionResult> DeleteOrder(int id)
     {
         var Order = await _ordersRepo.GetOrderByIdAsync(id);

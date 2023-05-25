@@ -14,80 +14,99 @@ function myFunction() {
 }
 
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+const passwordInput = document.getElementById('Password');
+const emailInput = document.getElementById('Email');
+const confirmPasswordInput = document.getElementById('VerifyPassword1');
+const feedbackDiv = document.getElementById('feedbackDiv');
+var matched=0;
+// Event listener for email input
+emailInput.addEventListener('input', function() {
+    var email = emailInput.value;
+    var emailIsValid = /^[\w-]+(\.[\w-]+)*@gmail\.com$/.test(email);
 
-$(document).ready(function () {
-    // Form validation
-    $('form.needs-validation').submit(function (event) {
-        // Prevent form submission if it's invalid
-        if (!this.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
+    feedbackDiv.style.backgroundColor='grey';
+    feedbackDiv.style.borderRadius='5%';
+    feedbackDiv.style.textAlign='center';
 
-        // Add 'was-validated' class to show validation feedback
-        $(this).addClass('was-validated');
-    });
-
-    // Password validation
-    $('input[name="Password"]').on('keyup', function () {
-        const password = $(this).val();
-
-        // Password should contain at least 8 characters
-        const minLength = 8;
-        const hasMinLength = password.length >= minLength;
-
-        // Password should contain at least one uppercase letter
-        const hasUppercase = /[A-Z]/.test(password);
-
-        // Password should contain at least one lowercase letter
-        const hasLowercase = /[a-z]/.test(password);
-
-        // Password should contain at least one digit
-        const hasDigit = /\d/.test(password);
-
-        // Password should contain at least one special character
-        const hasSpecialChar = /[!@#$%^&*()\-_=+{}[\]|\\;:'",.<>/?]/.test(password);
-
-        // Show/hide password strength feedback based on validation rules
-        if (hasMinLength && hasUppercase && hasLowercase && hasDigit && hasSpecialChar) {
-            $('.password-strength').text('Strong');
-            $('.password-strength').removeClass('text-danger').addClass('text-success');
-        } else {
-            $('.password-strength').text('Weak');
-            $('.password-strength').removeClass('text-success').addClass('text-danger');
-        }
-    });
-
-    // Confirm password match validation
-    $('input[name="VerifyPassword1"]').on('keyup', function () {
-        const password = $('input[name="Password"]').val();
-        const confirmPassword = $(this).val();
-
-        // Show/hide password match feedback based on whether the passwords match
-        if (password === confirmPassword) {
-            $('input[name="VerifyPassword1"]').removeClass('is-invalid');
-        } else {
-            $('input[name="VerifyPassword1"]').addClass('is-invalid');
-        }
-    });
+    // Update email input border color and feedback message
+    if (emailIsValid) {
+        matched++;
+        emailInput.style.borderColor = 'green';
+        feedbackDiv.innerHTML = "<p>A valid email should be in the form:<br><span style='color:#79FF00;'> &#x2022; &#x2713; xyz@cmps278.lab.edu</span></p>";
+    } else {
+        emailInput.style.borderColor = 'red';
+        feedbackDiv.innerHTML = '<img src=\'images/warning.jpg\' width=\'16px\' height=\'16px\' alt=\'not working\'><p>A valid email should be in the form:<br><span style="color:#DC0000;"> &#x2022; &#x2718; xyz@cmps278.lab.edu<span></p>';
+    }
 });
 
+// Event listener for password input
+passwordInput.addEventListener('input', function() {
+    var password = passwordInput.value;
+    feedbackDiv.style.backgroundColor='grey';
+    feedbackDiv.style.borderRadius='5%';
+    feedbackDiv.style.textAlign='center';
 
-$(document).ready(function () {
-    $("#clientButton").click(function () {
-        // Show client registration form section
-        $("#clientFormSection").show();
+    feedbackDiv.innerHTML = '';
 
-        // Hide delivery worker registration form section
-        $("#deliveryFormSection").hide();
+    // Password conditions
+    var passwordConditions = [
+        {regex: /^(?=.*[a-z])/, message: 'Contains at least one lowercase letter.'},
+        {regex: /^(?=.*[A-Z])/, message: 'Contains at least one uppercase letter.'},
+        {regex: /^(?=.*\d)/, message: 'Contains at least one number.'},
+        {regex: /^.{8,}$/, message: 'Contains at least 8 characters.'}
+    ];
+    
+
+    var satisfiedConditions = 0;
+    var feedbackMessage = "<img src='images/warning.jpg'>A valid password must satisfy the following conditions:";
+
+    passwordConditions.forEach(function(condition) {
+        if (condition.regex.test(password)) {
+            satisfiedConditions++;
+            feedbackMessage += '<p style="color:#79FF00;">&#x2713; ' + condition.message + '</p>';
+        } else {
+            feedbackMessage += '<p style="color:#DC0000;">&#x2718; ' + condition.message + '</p>';
+        }
     });
 
-    $("#deliveryButton").click(function () {
-        // Show delivery worker registration form section
-        $("#deliveryFormSection").show();
+    feedbackDiv.innerHTML = satisfiedConditions > 0 ? feedbackMessage : "";
 
-        // Hide client registration form section
-        $("#clientFormSection").hide();
-    });
+
+    // Update password input border color based on matching conditions
+    if (satisfiedConditions === passwordConditions.length) {
+        matched++;
+        passwordInput.style.borderColor = '#79FF00';
+    } else {
+        passwordInput.style.borderColor = '#DC0000';
+    }
+
+    feedbackDiv.style.backgroundColor='grey';
+    feedbackDiv.style.borderRadius='5%';
+    feedbackDiv.style.textAlign='center';
 });
+
+// Event listener for confirm password input
+confirmPasswordInput.addEventListener('input', function() {
+    var password = passwordInput.value;
+    var confirmPassword = confirmPasswordInput.value;
+    feedbackDiv.innerHTML = '';
+
+    // Update confirm password input border color and feedback message
+    if (password === confirmPassword) {
+        matched++;
+        confirmPasswordInput.style.borderColor = 'green';
+        feedbackDiv.innerHTML = '<p style="color:#79FF00;">&#x2713; Both passwords match.</p>';
+    } else {
+        confirmPasswordInput.style.borderColor = 'red';
+        feedbackDiv.innerHTML = '<p style="color:#DC0000;">&#x2718; Passwords don\'t match.</p>';
+    }
+
+    feedbackDiv.style.backgroundColor='grey';
+    feedbackDiv.style.borderRadius='5%';
+    feedbackDiv.style.textAlign='center';
+})
+
+if(matched===3){
+    feedbackDiv.innerHTML ='<h1>Account Created Succefully</h1>';
+};
+

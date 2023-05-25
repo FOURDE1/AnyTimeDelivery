@@ -3,8 +3,7 @@
 
 // Write your JavaScript code.
 
-var menuHolder = document.getElementById('menuHolder')
-var siteBrand = document.getElementById('siteBrand')
+const menuHolder = document.getElementById('menuHolder')
 
 function menuToggle() {
     if (menuHolder.className === "drawMenu") menuHolder.className = ""
@@ -15,7 +14,7 @@ function menuToggle() {
 // animation of logo 
 
 function myFunction() {
-    var img = document.getElementById("my-image");
+    const img = document.getElementById("my-image");
     img.classList.add("slide-animation");
 }
 
@@ -24,11 +23,11 @@ function myFunction() {
 function moveToSelected(element) {
 
     if (element == "next") {
-        var selected = $(".selected").next();
+        let selected = $(".selected").next();
     } else if (element == "prev") {
-        var selected = $(".selected").prev();
+        let selected = $(".selected").prev();
     } else {
-        var selected = element;
+        let selected = element;
     }
 
     var next = $(selected).next();

@@ -1,5 +1,8 @@
+using System.Security.Principal;
 using DeliverySite.Data;
+using DeliverySite.Models;
 using DeliverySite.Repos;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +17,18 @@ builder.Services.AddScoped<OrdersRepo>();
 builder.Services.AddScoped<SignUpRepo>();
 builder.Services.AddScoped<LoginRepo>();
 builder.Services.AddScoped<DeliverRepo>();
+builder.Services.AddIdentity<RegisterApp, IdentityRole>(options =>
+{
+    options.Password.RequiredLength = 8;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = true;
+    options.Password.RequireUppercase = true;
 
+
+
+
+}).AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 var app = builder.Build();
 
 
@@ -31,6 +45,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

@@ -1,6 +1,8 @@
-﻿@model Order
+﻿@using DeliverySite.ViewModel
+@model OrderRegisterAppViewData
 @{
     ViewData["Title"] = "Home Page";
+    var order = new Order();
 }
 
 <Main>
@@ -149,7 +151,7 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
             <div class="col-md-8 pb-3">
                 <div class="col-md-6 ">
                     <!-- <label for="selectedType" class="form-label bg-primary">Type</label> -->
-                    <select asp-for="Type" name="type" id="selectedType" class="form-select rounded-pill" required>
+                    <select asp-for="@order.Type" name="type" id="selectedType" class="form-select rounded-pill" required>
                         <option value="" selected disabled>Select Type</option>
                         <option value="Electronics">Electronics</option>
                         <option value="Clothing and fashion">Clothing and fashion</option>
@@ -162,13 +164,13 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
                     </select>
                 </div>
                 <div class="col-md-6 p-2 ">
-                    <label asp-for="OrderDate">Order Date:</label>
-                    <input asp-for="OrderDate" class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate"
+                    <label asp-for="@order.OrderDate">Order Date:</label>
+                    <input asp-for="@order.OrderDate" class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate"
                            class="form-control">
                 </div>
             </div>
             <div class="col-md-6 ">
-                <input asp-for="NameOfRecipient" type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
+                <input asp-for="@order.NameOfRecipient" type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
                        required>
                 <div class="valid-feedback">
                     looks good
@@ -176,14 +178,14 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
             </div><br>
 
             <div class="col-12 ">
-                <input asp-for="PickUpLocation" type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
+                <input asp-for="@order.PickUpLocation" type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
                        required>
                 <div class="valid-feedback">
                     looks good
                 </div>
             </div><br>
             <div class="col-12 ">
-                <input asp-for="DropOffLocation" type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
+                <input asp-for="@order.DropOffLocation" type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
                        required>
                 <div class="valid-feedback">
                     looks good
@@ -193,7 +195,7 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
 
             <div class="col-12 ">
 
-                <textarea  asp-for="Comments" class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
+                <textarea  asp-for="@order.Comments" class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
                 placeholder="Comments" required></textarea>
 
 
@@ -238,7 +240,7 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
 
                                         <div class="text-center">
                                             <p class="mb-2">Don't have an account?</p>
-                                            <a asp-controller="SignUp" asp-action="Register" type="button" class="btn btn-outline-danger">Create new</a>
+                                            <a asp-controller="Account" asp-action="Register" type="button" class="btn btn-outline-danger">Create new</a>
                                         </div>
                                     </form>
 
@@ -286,7 +288,7 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
 
                 </div>
                 <div id="SignUpFromHome" class="text-center">
-                    <a asp-controller="SignUp" asp-action="Register" class="btn btn-primary mt-3">Sign Up Now</a>
+                    <a asp-controller="Account" asp-action="Register" class="btn btn-primary mt-3">Sign Up Now</a>
 
                 </div>
             </div>

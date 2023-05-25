@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LJ7RWM7/b3J+2vOrW3OTbE76dadSsEm6ZG5AYpOhzDE=",
+  "Hash": "BPHYShOUG5Fi+gng9SHVoG1Kg7g0p9BG1S1eZFFdvDE=",
   "Source": "DeliverySite",
   "BasePath": "_content/DeliverySite",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\layout.css"
+    },
+    {
+      "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\css\\Login.css",
+      "SourceId": "DeliverySite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\",
+      "BasePath": "_content/DeliverySite",
+      "RelativePath": "css/Login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
       "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\css\\registerStyles.css",
@@ -423,6 +440,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Storefront.svg"
+    },
+    {
+      "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\images\\warning.jpg",
+      "SourceId": "DeliverySite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\",
+      "BasePath": "_content/DeliverySite",
+      "RelativePath": "images/warning.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\warning.jpg"
     },
     {
       "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\js\\indexHome.js",
