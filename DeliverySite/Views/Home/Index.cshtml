@@ -151,15 +151,15 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
             <div class="col-md-8 pb-3">
                 <div class="col-md-6 ">
                     <!-- <label for="selectedType" class="form-label bg-primary">Type</label> -->
-                    <select  asp-for="@Model.order.TypeOfCategories" id="selectedType" class="form-select rounded-pill" required>
+                    <select asp-for="@Model.order.TypeOfCategories" id="selectedType" class="form-select rounded-pill" required>
                         <option value="" selected disabled>Select Type</option>
                         <option value="Electronics" asp-selected="@Model.order.TypeOfCategories == 'Electronics'">Electronics</option>
-                        <option value="Clothing and fashion">Clothing and fashion</option>
-                        <option value="Food and groceries">Food and groceries</option>
-                        <option value="Home and household">Home and household</option>
-                        <option value="Health and beauty">Health and beauty</option>
-                        <option value="Office supplies">Office supplies</option>
-                        <option value="Automotive">Automotive</option>
+                        <option value="Clothing and fashion" asp-selected="@Model.order.TypeOfCategories == 'Clothing and fashion'">Clothing and fashion</option>
+                        <option value="Food and groceries" asp-selected="@Model.order.TypeOfCategories == 'Food and groceries'">Food and groceries</option>
+                        <option value="Home and household"asp-selected="@Model.order.TypeOfCategories == 'home and household'">Home and household</option>
+                        <option value="Health and beauty"asp-selected="@Model.order.TypeOfCategories == 'health and beuty'">Health and beauty</option>
+                        <option value="Office supplies"asp-selected="@Model.order.TypeOfCategories == 'office supplies'">Office supplies</option>
+                        <option value="Automotive"asp-selected="@Model.order.TypeOfCategories == 'Automotive'">Automotive</option>
 
                     </select>
                 </div>
