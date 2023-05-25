@@ -1,4 +1,4 @@
-﻿@model RegisterApp
+﻿@model RegisterAppViewData
 
 <head>
     <title>Register</title>
@@ -50,7 +50,7 @@
 
                     <div class="row">
                         <div class="col-2" id="feedbackDiv"></div>
-                        <form asp-controller="Account" asp-action="Register" method="post" class="row g-3 needs-validation col-10" enctype="multipart/form-data" novalidate>
+                        <form method="post" asp-controller="Account" asp-action="Register" class="row g-3 needs-validation col-10" enctype="multipart/form-data" novalidate>
                             <div class="col-md-6 col-xs-12 col-sm-12">
                                 <label asp-for="FirstName" class="form-label">First name</label>
                                 <input type="text" class="form-control" asp-for="FirstName" required>
@@ -431,7 +431,7 @@
                             <div class="invalid-feedback">
                                 Please insert an Image.
                             </div>
-
+                    
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12 col-sm-12 mt-5 Hide">
@@ -445,7 +445,7 @@
                     </div>
 
                     <div class="col-md-6 mx-auto text-center Hide">
-
+                    
                         <select asp-for="DeliveryVehicle" class="form-select mt-4" id="validationCustom04" required>
                             <option value="" selected disabled>Select Vehicle</option>
                             <option value="Delivery Trucks">Delivery Trucks</option>
@@ -454,7 +454,7 @@
                             <option value="Motorcycles">Motorcycles</option>
                             <option value="Bicycles">Bicycles</option>
                             <option value="Drones">Drones</option>
-
+                    
                         </select>
                         <div class="invalid-feedback">
                             Please select vehicle type.

@@ -14,16 +14,8 @@ public class ApplicationDbContext : IdentityDbContext<RegisterApp>
     public DbSet<Order> Orders { get; set; }
     public DbSet<TakenOrder> TakenOrders { get; set; }
 
-    protected override void OnModelCreating(
-        ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<RegisterApp>().HasData(
-            new RegisterApp
-            {
-                Id = 1,
-                UserName = "fourde",
-                Password = "HossienRaad@3",
-
-            });
+        base.OnModelCreating(modelBuilder);
     }
 }

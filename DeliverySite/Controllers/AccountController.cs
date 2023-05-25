@@ -28,15 +28,21 @@ public class AccountController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> RegisterAsync(RegisterApp obj)
+    public async Task<IActionResult> RegisterAsync(RegisterAppViewData obj)
     {
         if (ModelState.IsValid)
         {
-            var user = new RegisterApp { UserName = obj.UserName ,Password = obj.Password};  // TODO this my be needed
-            var result = await _userManager.CreateAsync(user);
+            var user = new RegisterApp()
+            {
+                UserName = obj.UserName, Password = obj.Password, PhoneNumber = obj.PhoneNumber,
+                FirstName = obj.FirstName, LastName = obj.LastName, Email = obj.Email, NationalId = obj.NationalId,
+                City = obj.City, Payment = obj.Payment, VerifyPassword1 = obj.VerifyPassword1
+            }; // TODO this my be needed
+            // var username = user.UserName;
+            var result = await _userManager.CreateAsync(user, password: obj.Password);
             if (result.Succeeded)
             {
-                await _signInManager.SignInAsync(obj, isPersistent: false);
+                await _signInManager.SignInAsync(user, isPersistent: false);
                 TempData["Success"] = "category created successfully";
                 return RedirectToAction("index", "Home");
             }
@@ -59,13 +65,14 @@ public class AccountController : Controller
         var model = new Login() { ReturnUrl = returnURL };
         return View(model);
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> LogIn(Login model)
     {
         if (ModelState.IsValid)
         {
-            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password,model.RememberMe, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe,
+                lockoutOnFailure: false);
             if (result.Succeeded)
             {
                 if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
@@ -77,9 +84,6 @@ public class AccountController : Controller
                     return RedirectToAction("Index", "Home");
                 }
             }
-                
-                
-        
         }
 
         ModelState.AddModelError("", "Invalid username/password.");
