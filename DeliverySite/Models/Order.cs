@@ -6,7 +6,7 @@ public class Order
 {
     [Key] public int Id { get; set; }
 
-    [Required] public string Type { get; set; }
+    public string TypeOfCategories { get; set; } = "category1";
 
     public DateTime OrderDate { get; set; }
     [Required] public string NameOfRecipient { get; set; }

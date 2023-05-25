@@ -82,19 +82,22 @@
                 @* *@
                 @* </div> *@
                 <div class="flex2 text-end d-none d-md-block">
-                    <button class="whiteLink siteLink">
-                        <a style="text-decoration: none; color: inherit;" asp-controller="Account" asp-action="Register">REGISTER</a>
-                    </button>
-                
+                    @* <button class="whiteLink siteLink"> *@
+                    @*     <a style="text-decoration: none; color: inherit;" asp-controller="Account" asp-action="Register">REGISTER</a> *@
+                    @* </button> *@
+
                     @if (Context.User.Identity.IsAuthenticated)
                     {
-                        <form id="logoutForm" asp-controller="Home" asp-action="Index" method="post">
+                        <form id="logoutForm" asp-controller="Account" asp-action="LogOut" method="post">
                             <button type="submit" class="Login blackLink bg-dark siteLink">Log out</button>
                         </form>
                         <span class="text-light">@Context.User.Identity.Name</span>
                     }
                     else
                     {
+                        <button class="whiteLink siteLink">
+                            <a style="text-decoration: none; color: inherit;" asp-controller="Account" asp-action="Register">REGISTER</a>
+                        </button>
                         <button class="Login blackLink bg-dark siteLink">
                             <a style="text-decoration: none; color: inherit;" asp-controller="Account" asp-action="Login">Login</a>
                         </button>

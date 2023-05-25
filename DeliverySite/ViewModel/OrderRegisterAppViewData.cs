@@ -1,6 +1,6 @@
 ﻿using DeliverySite.Models;
-namespace DeliverySite.ViewModel;
 
+namespace DeliverySite.ViewModel;
 
 public class OrderRegisterAppViewData
 {

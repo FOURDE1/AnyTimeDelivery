@@ -1,6 +1,5 @@
 ﻿using DeliverySite.Data;
 using DeliverySite.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Repos;
 
@@ -15,7 +14,7 @@ public class DeliverRepo
 
     public async Task TakeOrder(Order order, RegisterApp registerApp)
     {
-        TakenOrder takenOrder = new TakenOrder()
+        var takenOrder = new TakenOrder
         {
             DeliveryId = registerApp.Id,
             FirstName = "Abbes",

@@ -18,9 +18,9 @@ public class DeliverController : Controller
         _ordersRepo = ordersRepo;
     }
 
-    public  IActionResult Index()
+    public IActionResult Index()
     {
-        var orders =  _loginRepo.GetAllOrders();
+        var orders = _loginRepo.GetAllOrders();
         return View(orders);
     }
 
@@ -45,7 +45,7 @@ public class DeliverController : Controller
         //
         // };
         await _deliverRepo.TakeOrder(order, registerApp);
-        
+
         return Ok("Done");
     }
 }

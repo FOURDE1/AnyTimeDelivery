@@ -30,9 +30,9 @@
                                              style="width: 200px;" alt="logo">
                                     </div>
 
-                                    <form asp-controller="Account" asp-action="LogIn" asp-route-returnURL="@Model.ReturnUrl" method="post" class="my-3">
+                                    <form asp-controller="Account" method="post" asp-action="LogIn" asp-route-returnURL="@Model.ReturnUrl" class="my-3">
                                         <div class="my-3">
-                                            <input type="email" id="form2Example11" class="form-control" asp-for="Username" placeholder="Username"/>
+                                            <input type="text" id="form2Example11" class="form-control" asp-for="Username" placeholder="Username"/>
                                         </div>
                                         <div class="col">
                                             <span asp-validation-for="Username" class="text-danger"></span>
@@ -45,13 +45,16 @@
                                             <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="offset-sm-2 col-sm-4"><input type="checkbox" title="Remember Me" asp-for="RememberMe" class="form-check">
-                                                <label asp-for="RememberMe" >Remember Me</label>
-                                                </div>
+                                            <div class="offset-sm-2 col-sm-4">
+                                                <input type="checkbox" title="Remember Me" asp-for="RememberMe" class="form-check">
+                                                <label asp-for="RememberMe">Remember Me</label>
+                                            </div>
                                         </div>
 
                                         <div class="text-center mb-3">
-                                            <a asp-controller="" asp-action="" class="btn btn-primary btn-block mx-2" type="button">Log in</a>
+
+                                            <button type="submit" class="btn btn-primary btn-block mx-2">Log in</button>
+
                                             <a class="text-muted" href="#!">Forgot password?</a>
                                         </div>
 

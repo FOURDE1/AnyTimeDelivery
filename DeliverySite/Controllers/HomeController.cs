@@ -1,10 +1,10 @@
 ﻿using DeliverySite.Models;
 using DeliverySite.Repos;
+using DeliverySite.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Controllers;
-
 
 public class Home : Controller
 {
@@ -16,11 +16,17 @@ public class Home : Controller
     }
 
     // GET
-    
+
     public IActionResult Index()
     {
-        return View();
+        OrderRegisterAppViewData viewData = new OrderRegisterAppViewData
+        {
+            registerApp = new RegisterApp(),
+                order = new Order()
+        };
+        return View(viewData);
     }
+
     [Authorize]
     [HttpGet]
     public IActionResult CreateOrder()

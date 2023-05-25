@@ -18,15 +18,15 @@ const passwordInput = document.getElementById('Password');
 const emailInput = document.getElementById('Email');
 const confirmPasswordInput = document.getElementById('VerifyPassword1');
 const feedbackDiv = document.getElementById('feedbackDiv');
-var matched=0;
+var matched = 0;
 // Event listener for email input
-emailInput.addEventListener('input', function() {
+emailInput.addEventListener('input', function () {
     var email = emailInput.value;
     var emailIsValid = /^[\w-]+(\.[\w-]+)*@gmail\.com$/.test(email);
 
-    feedbackDiv.style.backgroundColor='grey';
-    feedbackDiv.style.borderRadius='5%';
-    feedbackDiv.style.textAlign='center';
+    feedbackDiv.style.backgroundColor = 'grey';
+    feedbackDiv.style.borderRadius = '5%';
+    feedbackDiv.style.textAlign = 'center';
 
     // Update email input border color and feedback message
     if (emailIsValid) {
@@ -40,11 +40,11 @@ emailInput.addEventListener('input', function() {
 });
 
 // Event listener for password input
-passwordInput.addEventListener('input', function() {
+passwordInput.addEventListener('input', function () {
     var password = passwordInput.value;
-    feedbackDiv.style.backgroundColor='grey';
-    feedbackDiv.style.borderRadius='5%';
-    feedbackDiv.style.textAlign='center';
+    feedbackDiv.style.backgroundColor = 'grey';
+    feedbackDiv.style.borderRadius = '5%';
+    feedbackDiv.style.textAlign = 'center';
 
     feedbackDiv.innerHTML = '';
 
@@ -55,12 +55,12 @@ passwordInput.addEventListener('input', function() {
         {regex: /^(?=.*\d)/, message: 'Contains at least one number.'},
         {regex: /^.{8,}$/, message: 'Contains at least 8 characters.'}
     ];
-    
+
 
     var satisfiedConditions = 0;
     var feedbackMessage = "<img src='images/warning.jpg'>A valid password must satisfy the following conditions:";
 
-    passwordConditions.forEach(function(condition) {
+    passwordConditions.forEach(function (condition) {
         if (condition.regex.test(password)) {
             satisfiedConditions++;
             feedbackMessage += '<p style="color:#79FF00;">&#x2713; ' + condition.message + '</p>';
@@ -80,13 +80,13 @@ passwordInput.addEventListener('input', function() {
         passwordInput.style.borderColor = '#DC0000';
     }
 
-    feedbackDiv.style.backgroundColor='grey';
-    feedbackDiv.style.borderRadius='5%';
-    feedbackDiv.style.textAlign='center';
+    feedbackDiv.style.backgroundColor = 'grey';
+    feedbackDiv.style.borderRadius = '5%';
+    feedbackDiv.style.textAlign = 'center';
 });
 
 // Event listener for confirm password input
-confirmPasswordInput.addEventListener('input', function() {
+confirmPasswordInput.addEventListener('input', function () {
     var password = passwordInput.value;
     var confirmPassword = confirmPasswordInput.value;
     feedbackDiv.innerHTML = '';
@@ -101,12 +101,12 @@ confirmPasswordInput.addEventListener('input', function() {
         feedbackDiv.innerHTML = '<p style="color:#DC0000;">&#x2718; Passwords don\'t match.</p>';
     }
 
-    feedbackDiv.style.backgroundColor='grey';
-    feedbackDiv.style.borderRadius='5%';
-    feedbackDiv.style.textAlign='center';
+    feedbackDiv.style.backgroundColor = 'grey';
+    feedbackDiv.style.borderRadius = '5%';
+    feedbackDiv.style.textAlign = 'center';
 })
 
-if(matched===3){
-    feedbackDiv.innerHTML ='<h1>Account Created Succefully</h1>';
-};
+if (matched === 3) {
+    feedbackDiv.innerHTML = '<h1>Account Created Succefully</h1>';
+}
 

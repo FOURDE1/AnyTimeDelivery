@@ -3,6 +3,7 @@
 public class RegisterAppViewData
 {
     [Key] public int Id { get; set; }
+
     [Required(ErrorMessage = "Please enter a username.")]
     [StringLength(255)]
     public string UserName { get; set; }

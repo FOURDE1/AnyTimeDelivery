@@ -1,4 +1,3 @@
-using System.Security.Principal;
 using DeliverySite.Data;
 using DeliverySite.Models;
 using DeliverySite.Repos;
@@ -18,16 +17,12 @@ builder.Services.AddScoped<SignUpRepo>();
 builder.Services.AddScoped<LoginRepo>();
 builder.Services.AddScoped<DeliverRepo>();
 builder.Services.AddIdentity<RegisterApp, IdentityRole>(options =>
-{
-    options.Password.RequiredLength = 8;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireDigit = true;
-    options.Password.RequireUppercase = true;
-
-
-
-
-}).AddEntityFrameworkStores<ApplicationDbContext>()
+    {
+        options.Password.RequiredLength = 8;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireDigit = true;
+        options.Password.RequireUppercase = true;
+    }).AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 var app = builder.Build();
 
