@@ -88,10 +88,17 @@
 
                     @if (Context.User.Identity.IsAuthenticated)
                     {
-                        <form id="logoutForm" asp-controller="Account" asp-action="LogOut" method="post">
-                            <button type="submit" class="Login blackLink bg-dark siteLink">Log out</button>
+                        <form class="siteLink" id="logoutForm" asp-controller="Account" asp-action="LogOut" method="post">
+                            <div class="d-flex align-items-center justify-content-end">
+                                <div class="d-flex flex-column align-items-center">
+                                    <span class="text-dark fw-bold">Logged in as:</span>
+                                    <span class="text-dark mt-1">@Context.User.Identity.Name</span>
+                                </div>
+                                <button class="Login blackLink bg-dark siteLink  mx-2">
+                                    Log out
+                                </button>
+                            </div>
                         </form>
-                        <span class="text-light">@Context.User.Identity.Name</span>
                     }
                     else
                     {
@@ -114,9 +121,6 @@
                         <select class="noStyle">
                             <option value="english">English</option>
                             <option value="arabic">Arabic</option>
-                            <option value="french">French</option>
-                            <option value="italian">Italian</option>
-                            <option value="hebrew">Hebrew</option>
                         </select>
                     </div>
                     <div class="col text-end ">
@@ -127,9 +131,10 @@
             <div>
                 <a asp-controller="Home" asp-action="Index" class="nav-menu-item"><i class="fas fa-home me-3"></i>Home</a>
                 <a asp-controller="Home" asp-action="getAllOrders" class="nav-menu-item"><i class="fab fa-product-hunt me-3"></i>Orders</a>
-                <a asp-controller="Deliver" asp-action="Index" class="nav-menu-item"> <i class="fa-duotone fa-person-carry-box fa-lg"></i>grabOrder</a>
+                <a asp-controller="Deliver" asp-action="Index" class="nav-menu-item"><i class="fa-solid fa-hand-back-fist me-3"></i>Grab Order</a>
                 <a href="#" class="nav-menu-item"><i class="fas fa-search me-3"></i>Explore</a>
-                <a href="#" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
+
+                <a asp-controller="Home" asp-action="Index" asp-route-id="" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
                 <a href="#" class="nav-menu-item"><i class="fas fa-dollar-sign me-3"></i>Pricing</a>
                 <a href="#" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>Blog</a>
 

@@ -1,4 +1,4 @@
-﻿@model DeliverySite.ViewModel.OrderRegisterAppViewData
+﻿@model DeliverySite.ViewModel.OrderRegisterAppLoginViewData
 
 @{
     ViewData["Title"] = "Home Page";
@@ -145,7 +145,24 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
             </table>
         </div>
 
-        <form method="post" asp-controller="Home" asp-action="CreateOrder" style="background-color:#C5D5D9"
+        @section Scripts {
+            <script>
+        // Check if the scroll flag is set
+        var shouldScroll = @Model;
+
+        // Scroll to the div if the flag is true
+        if (shouldScroll) {
+            document.addEventListener("DOMContentLoaded", function () {
+                var element = document.getElementById("OrderToCreate");
+                if (element) {
+                    element.scrollIntoView();
+                }
+            });
+        }
+    </script>
+        }
+
+        <form id="OrderToCreate" method="post" asp-controller="Home" asp-action="CreateOrder" style="background-color:#C5D5D9"
               class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" novalidate>
 
             <div class="col-md-8 pb-3">
@@ -153,13 +170,13 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
                     <!-- <label for="selectedType" class="form-label bg-primary">Type</label> -->
                     <select asp-for="@Model.order.TypeOfCategories" id="selectedType" class="form-select rounded-pill" required>
                         <option value="" selected disabled>Select Type</option>
-                        <option value="Electronics" asp-selected="@Model.order.TypeOfCategories == 'Electronics'">Electronics</option>
+                        <option asp-selected="@Model.order.TypeOfCategories == 'Electronics'">Electronics</option>
                         <option value="Clothing and fashion" asp-selected="@Model.order.TypeOfCategories == 'Clothing and fashion'">Clothing and fashion</option>
                         <option value="Food and groceries" asp-selected="@Model.order.TypeOfCategories == 'Food and groceries'">Food and groceries</option>
-                        <option value="Home and household"asp-selected="@Model.order.TypeOfCategories == 'home and household'">Home and household</option>
-                        <option value="Health and beauty"asp-selected="@Model.order.TypeOfCategories == 'health and beuty'">Health and beauty</option>
-                        <option value="Office supplies"asp-selected="@Model.order.TypeOfCategories == 'office supplies'">Office supplies</option>
-                        <option value="Automotive"asp-selected="@Model.order.TypeOfCategories == 'Automotive'">Automotive</option>
+                        <option value="Home and household" asp-selected="@Model.order.TypeOfCategories == 'home and household'">Home and household</option>
+                        <option value="Health and beauty" asp-selected="@Model.order.TypeOfCategories == 'health and beuty'">Health and beauty</option>
+                        <option value="Office supplies" asp-selected="@Model.order.TypeOfCategories == 'office supplies'">Office supplies</option>
+                        <option value="Automotive" asp-selected="@Model.order.TypeOfCategories == 'Automotive'">Automotive</option>
 
                     </select>
                 </div>
@@ -168,27 +185,30 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
                     <input asp-for="@Model.order.OrderDate" class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate"
                            class="form-control">
                 </div>
+                <div class="col">
+                    <span asp-validation-for="@Model.order.OrderDate" class="text-danger"></span>
+                </div>
             </div>
             <div class="col-md-6 ">
                 <input asp-for="@Model.order.NameOfRecipient" type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
                        required>
-                <div class="valid-feedback">
-                    looks good
+                <div class="col">
+                    <span asp-validation-for="@Model.order.NameOfRecipient" class="text-danger"></span>
                 </div>
             </div><br>
 
             <div class="col-12 ">
                 <input asp-for="@Model.order.PickUpLocation" type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
                        required>
-                <div class="valid-feedback">
-                    looks good
+                <div class="col">
+                    <span asp-validation-for="@Model.order.PickUpLocation" class="text-danger"></span>
                 </div>
             </div><br>
             <div class="col-12 ">
                 <input asp-for="@Model.order.DropOffLocation" type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
                        required>
-                <div class="valid-feedback">
-                    looks good
+                <div class="col">
+                    <span asp-validation-for="@Model.order.DropOffLocation" class="text-danger"></span>
                 </div>
             </div><br>
 
@@ -197,7 +217,9 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
 
                 <textarea  asp-for="@Model.order.Comments" class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
                 placeholder="Comments" required></textarea>
-
+                <div class="col">
+                    <span asp-validation-for="@Model.order.Comments" class="text-danger"></span>
+                </div>
 
             </div><br>
             <div class="col-12">
@@ -224,17 +246,34 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
                                              style="width: 200px;" alt="logo">
                                     </div>
 
-                                    <form method="post" class="my-3">
+                                    <form asp-controller="Account" method="post" asp-action="LogIn" asp-route-returnURL="@Model.login.ReturnUrl" class="my-3">
                                         <div class="my-3">
-                                            <input type="email" id="form2Example11" class="form-control" placeholder="Username"/>
+                                            <input type="text" id="form2Example11" class="form-control" asp-for="login.Username" placeholder="Username"/>
+                                        </div>
+                                        <div class="col">
+                                            <span asp-validation-for="login.Username" class="text-danger"></span>
                                         </div>
 
                                         <div class="my-3">
-                                            <input type="password" id="form2Example22" class="form-control" placeholder="Password"/>
+                                            <input type="password" asp-for="login.Password" id="form2Example22" class="form-control" placeholder="Password"/>
+                                        </div>
+                                        <div class="col">
+                                            <span asp-validation-for="login.Password" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <!-- Modified class from "col-sm-4" to "col-sm-10" -->
+                                                <div class="form-check">
+                                                    <!-- Added wrapper div with "form-check" class -->
+                                                    <input type="checkbox" title="Remember Me" asp-for="login.RememberMe" class="form-check-input">
+                                                    <label class="form-check-label small" asp-for="login.RememberMe">Remember Me</label>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="text-center mb-3">
-                                            <a asp-controller="" asp-action="" class="btn btn-primary btn-block mx-2" type="button">Log in</a>
+                                            <button type="submit" class="btn btn-primary btn-block mx-2">Log in</button>
                                             <a class="text-muted" href="#!">Forgot password?</a>
                                         </div>
 
@@ -243,6 +282,7 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
                                             <a asp-controller="Account" asp-action="Register" type="button" class="btn btn-outline-danger">Create new</a>
                                         </div>
                                     </form>
+
 
                                 </div>
                             </div>

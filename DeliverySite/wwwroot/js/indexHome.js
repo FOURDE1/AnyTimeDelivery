@@ -23,11 +23,11 @@ function myFunction() {
 function moveToSelected(element) {
 
     if (element == "next") {
-        let selected = $(".selected").next();
+        var selected = $(".selected").next();
     } else if (element == "prev") {
-        let selected = $(".selected").prev();
+        var selected = $(".selected").prev();
     } else {
-        let selected = element;
+        var selected = element;
     }
 
     var next = $(selected).next();

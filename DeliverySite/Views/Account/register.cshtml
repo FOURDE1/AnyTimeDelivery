@@ -49,11 +49,14 @@
 
 
                     <div class="row">
-                        <div class="col-2" id="feedbackDiv"></div>
-                        <form method="post" asp-controller="Account" asp-action="Register" class="row g-3 needs-validation col-10" enctype="multipart/form-data" novalidate>
+
+                        <form method="post" asp-controller="Account" asp-action="Register" class="row g-3 needs-validation " enctype="multipart/form-data" novalidate>
                             <div class="col-md-6 col-xs-12 col-sm-12">
                                 <label asp-for="FirstName" class="form-label">First name</label>
                                 <input type="text" class="form-control" asp-for="FirstName" required>
+                                <div class="col">
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -61,6 +64,9 @@
                             <div class="col-md-6 col-xs-12 col-sm-12">
                                 <label asp-for="LastName" class="form-label">Last name</label>
                                 <input type="text" class="form-control" asp-for="LastName" required>
+                                <div class="col">
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -74,9 +80,11 @@
                                     <span class="input-group-text">@atSymbol</span>
                                     <input asp-for="UserName" type="text" class="form-control"
                                            aria-describedby="inputGroupPrepend" required>
-                                    <div class="invalid-feedback">
-                                        Please choose a username.
-                                    </div>
+
+
+                                </div>
+                                <div class="col">
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-md-6 col-xs-12 col-sm-12">
@@ -84,9 +92,10 @@
                                 <div class="input-group has-validation">
                                     <input asp-for="Email" type="email" class="form-control"
                                            aria-describedby="inputGroupPrepend" required>
-                                    <div class="invalid-feedback">
-                                        Please choose an email.
-                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-md-6 col-xs-12 col-sm-12">
@@ -94,10 +103,11 @@
                                 <div class="input-group has-validation">
                                     <input asp-for="PhoneNumber" type="tel" class="form-control" id="" aria-describedby="inputGroupPrepend"
                                            required>
-                                    <div class="invalid-feedback">
-                                        Please enter a number.
-                                    </div>
 
+
+                                </div>
+                                <div class="col">
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                 </div>
                             </div>
 
@@ -106,9 +116,10 @@
                                 <label asp-for="NationalId" class="form-label">Enter your national ID</label>
                                 <div class="input-group has-validation">
                                     <input asp-for="NationalId" type="number" class="form-control" id="" required>
-                                    <div class="invalid-feedback">
-                                        Please enter valid national ID.
-                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <span asp-validation-for="NationalId" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-md-6 mx-auto text-center">
@@ -125,8 +136,8 @@
                                     <option value="Baalbek">Baalbek</option>
                                     <option value="Jounieh">Jounieh</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid state.
+                                <div class="col">
+                                    <span asp-validation-for="City" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-md-6 mx-auto text-center">
@@ -141,8 +152,8 @@
                                     <option value="Binance">Binance</option>
 
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid Payment.
+                                <div class="col">
+                                    <span asp-validation-for="Payment" class="text-danger"></span>
                                 </div>
                             </div>
 
@@ -151,16 +162,16 @@
                                 <label asp-for="Password" class="form-label text-center">Password</label>
                                 <input asp-for="Password" type="password" class="form-control" required/>
                                 <small class="feedbackDiv"></small>
-                                <div class="invalid-feedback">
-                                    Password must be at least 8 characters long.
+                                <div class="col">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <label asp-for="VerifyPassword1" class="form-label text-center">Confirm Password:</label>
                                 <input asp-for="VerifyPassword1" type="password" class="form-control" required/>
 
-                                <div class="invalid-feedback">
-                                    Passwords don't match.
+                                <div class="col">
+                                    <span asp-validation-for="VerifyPassword1" class="text-danger"></span>
                                 </div>
                             </div>
 
@@ -171,8 +182,8 @@
                                     <label class="form-check-label" asp-for="TermsAndConditions">
                                         Agree to terms and conditions
                                     </label>
-                                    <div class="invalid-feedback">
-                                        You must agree before submitting.
+                                    <div class="col">
+                                        <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
@@ -332,15 +343,15 @@
                     <div class="col-md-6 col-xs-12 col-sm-12">
                         <label asp-for="FirstName" class="form-label">First name</label>
                         <input type="text" class="form-control" asp-for="FirstName" id="validationCustom01" required>
-                        <div class="valid-feedback">
-                            Looks good!
+                        <div class="col">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12 col-sm-12">
                         <label asp-for="LastName" class="form-label">Last name</label>
                         <input type="text" class="form-control" asp-for="LastName" id="validationCustom02" required>
-                        <div class="valid-feedback">
-                            Looks good!
+                        <div class="col">
+                            <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12 col-sm-12">
@@ -352,9 +363,10 @@
                             <span class="input-group-text" id="inputGroupPrepend">@atSymbol</span>
                             <input asp-for="UserName" type="text" class="form-control" id="validationCustomUsername"
                                    aria-describedby="inputGroupPrepend" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
+
+                        </div>
+                        <div class="col">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12 col-sm-12">
@@ -362,9 +374,10 @@
                         <div class="input-group has-validation">
                             <input asp-for="Email" type="email" class="form-control" id="validationEmail"
                                    aria-describedby="inputGroupPrepend" required>
-                            <div class="invalid-feedback">
-                                Please choose an email.
-                            </div>
+
+                        </div>
+                        <div class="col">
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12 col-sm-12">
@@ -372,10 +385,11 @@
                         <div class="input-group has-validation">
                             <input asp-for="PhoneNumber" type="tel" class="form-control" id="" aria-describedby="inputGroupPrepend"
                                    required>
-                            <div class="invalid-feedback">
-                                Please enter a number.
-                            </div>
 
+
+                        </div>
+                        <div class="col">
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -384,9 +398,10 @@
                         <label asp-for="NationalId" class="form-label">Enter your national ID</label>
                         <div class="input-group has-validation">
                             <input asp-for="NationalId" type="number" class="form-control" id="" required>
-                            <div class="invalid-feedback">
-                                Please enter valid national ID.
-                            </div>
+
+                        </div>
+                        <div class="col">
+                            <span asp-validation-for="NationalId" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 mx-auto text-center">
@@ -403,8 +418,8 @@
                             <option value="Baalbek">Baalbek</option>
                             <option value="Jounieh">Jounieh</option>
                         </select>
-                        <div class="invalid-feedback">
-                            Please select a valid state.
+                        <div class="col">
+                            <span asp-validation-for="City" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 mx-auto text-center">
@@ -419,8 +434,8 @@
                             <option value="Binance">Binance</option>
 
                         </select>
-                        <div class="invalid-feedback">
-                            Please select a valid Payment.
+                        <div class="col">
+                            <span asp-validation-for="Payment" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12 col-sm-12 mt-5 Hide">
@@ -428,8 +443,8 @@
                         <div class="input-group has-validation">
                             <input asp-for="ImageDataDriverLi" type="text" class="form-control-file" id="" accept="image/*"
                                    required>
-                            <div class="invalid-feedback">
-                                Please insert an Image.
+                            <div class="col">
+                                <span asp-validation-for="ImageDataDriverLi" class="text-danger"></span>
                             </div>
 
                         </div>
@@ -438,8 +453,8 @@
                         <label asp-for="ImageDataSelfie" class="form-label">Selfie</label>
                         <div class="input-group has-validation">
                             <input asp-for="ImageDataSelfie" type="text" class="form-control-file" id="" accept="image/*" required>
-                            <div class="invalid-feedback">
-                                Please insert an Image.
+                            <div class="col">
+                                <span asp-validation-for="ImageDataSelfie" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
@@ -456,8 +471,8 @@
                             <option value="Drones">Drones</option>
 
                         </select>
-                        <div class="invalid-feedback">
-                            Please select vehicle type.
+                        <div class="col">
+                            <span asp-validation-for="ImageDataDriverLi" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -465,14 +480,16 @@
                     <div class="col-12 mt-5">
                         <label asp-for="Password" class="form-label text-center">Password</label>
                         <input asp-for="Password" type="password" class="form-control" id="password1" required/>
-
+                        <div class="col">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="col-12">
                         <label asp-for="VerifyPassword1" class="form-label text-center">Confirm Password:</label>
                         <input asp-for="VerifyPassword1" type="password" class="form-control" id="password2" required/>
                         @* oninput="@Model.SetPassword("this.value")" *@
-                        <div class="invalid-feedback">
-                            Passwords don't match.
+                        <div class="col">
+                            <span asp-validation-for="VerifyPassword1" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -483,8 +500,8 @@
                             <label class="form-check-label" asp-for="TermsAndConditions">
                                 Agree to terms and conditions
                             </label>
-                            <div class="invalid-feedback">
-                                You must agree before submitting.
+                            <div class="col">
+                                <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
                             </div>
                         </div>
                     </div>

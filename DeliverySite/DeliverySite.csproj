@@ -18,4 +18,8 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+        <_ContentIncludedByDefault Remove="Views\Login\Login.cshtml"/>
+    </ItemGroup>
+
 </Project>

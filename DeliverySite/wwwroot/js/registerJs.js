@@ -1,4 +1,4 @@
-﻿const menuHolder = document.getElementById('menuHolder')
+﻿
 
 function menuToggle() {
     if (menuHolder.className === "drawMenu") menuHolder.className = ""
@@ -110,3 +110,20 @@ if (matched === 3) {
     feedbackDiv.innerHTML = '<h1>Account Created Succefully</h1>';
 }
 
+$(document).ready(function () {
+    $("#clientButton").click(function () {
+        // Show client registration form section
+        $("#clientFormSection").show();
+
+        // Hide delivery worker registration form section
+        $("#deliveryFormSection").hide();
+    });
+
+    $("#deliveryButton").click(function () {
+        // Show delivery worker registration form section
+        $("#deliveryFormSection").show();
+
+        // Hide client registration form section
+        $("#clientFormSection").hide();
+    });
+});

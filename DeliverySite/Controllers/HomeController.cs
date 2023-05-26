@@ -19,12 +19,13 @@ public class Home : Controller
 
     public IActionResult Index()
     {
-        OrderRegisterAppViewData viewData = new OrderRegisterAppViewData
+        OrderRegisterAppLoginViewData orderRegisterAppLoginViewData = new OrderRegisterAppLoginViewData()
         {
             registerApp = new RegisterApp(),
-                order = new Order()
+            order = new Order(),
+            login = new Login()
         };
-        return View(viewData);
+        return View(orderRegisterAppLoginViewData);
     }
 
     [Authorize]
@@ -34,11 +35,15 @@ public class Home : Controller
         return View(nameof(Index));
     }
 
-    // OrderController
+    public IActionResult CreateOrderInSeparatedPage()
+    {
+        return View();
+    }
+
     [Authorize]
     [HttpPost]
     // public async Task<IActionResult> createOrder(order Order)
-    public async Task<RedirectToActionResult> CreateOrder(Order order)
+    public async Task<RedirectToActionResult> CreateOrderInSeparatedPage(Order order)
 
     {
         try
@@ -53,10 +58,28 @@ public class Home : Controller
             Console.WriteLine($"Error adding order: {ex.Message}"); // Debug statement
         }
 
+        return RedirectToAction(nameof(getAllOrders));
+    }
+
+    // OrderController
+    [Authorize]
+    [HttpPost]
+    // public async Task<IActionResult> createOrder(order Order)
+    public async Task<RedirectToActionResult> CreateOrder(OrderRegisterAppLoginViewData orderRegisterAppLoginViewData)
+
+    {
+        OrderRegisterAppLoginViewData orderToPass = new OrderRegisterAppLoginViewData
+        {
+            order = orderRegisterAppLoginViewData.order
+        };
+        if (!ModelState.IsValid) return RedirectToAction(nameof(Index), orderToPass);
+        await _ordersRepo.AddAsync(orderRegisterAppLoginViewData.order);
+        return RedirectToAction(nameof(getAllOrders));
+
+
         // return RedirectToAction(nameof(getAllOrders));
         // return View(nameof(getAllOrders));
         // return RedirectToAction(nameof(getAllOrders));
-        return RedirectToAction(nameof(getAllOrders));
     }
 
     [Authorize]

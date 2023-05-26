@@ -1,17 +1,24 @@
-﻿@model Login
+﻿@using Microsoft.AspNetCore.Components.Web
+@model Login
 
 @{
     Layout = null;
+
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title>title</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="~/css/styles.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+    <style>
+        body{
+         background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+        }
+    </style>
 </head>
 <body>
 <div class="row justify-content-center">
@@ -44,17 +51,20 @@
                                         <div class="col">
                                             <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
+
                                         <div class="form-group row">
-                                            <div class="offset-sm-2 col-sm-4">
-                                                <input type="checkbox" title="Remember Me" asp-for="RememberMe" class="form-check">
-                                                <label asp-for="RememberMe">Remember Me</label>
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <!-- Modified class from "col-sm-4" to "col-sm-10" -->
+                                                <div class="form-check">
+                                                    <!-- Added wrapper div with "form-check" class -->
+                                                    <input type="checkbox" title="Remember Me" asp-for="RememberMe" class="form-check-input">
+                                                    <label class="form-check-label small" asp-for="RememberMe">Remember Me</label>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="text-center mb-3">
-
                                             <button type="submit" class="btn btn-primary btn-block mx-2">Log in</button>
-
                                             <a class="text-muted" href="#!">Forgot password?</a>
                                         </div>
 
@@ -63,6 +73,7 @@
                                             <a asp-controller="Account" asp-action="Register" type="button" class="btn btn-outline-danger">Create new</a>
                                         </div>
                                     </form>
+
 
                                 </div>
                             </div>

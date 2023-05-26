@@ -8,73 +8,73 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DeliverySite
 build_property.RootNamespace = DeliverySite
-build_property.ProjectDir = C:\Users\user\OneDrive\Desktop\webProject\Capstone-project\DeliverySite\
+build_property.ProjectDir = C:\Users\hossi\OneDrive\Desktop\Delivery site\DeliverySite\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\user\OneDrive\Desktop\webProject\Capstone-project\DeliverySite
+build_property.MSBuildProjectDirectory = C:\Users\hossi\OneDrive\Desktop\Delivery site\DeliverySite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Account/Login.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Account/register.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Account/register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxyZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Deliver/Index.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Deliver/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Deliver/TakeOrder.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Deliver/TakeOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlclxUYWtlT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Home/DeleteOrder.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Home/CreateOrderInSeparatedPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVPcmRlckluU2VwYXJhdGVkUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Home/DeleteOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZWxldGVPcmRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Home/EditOrder.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Home/EditOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0T3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Home/getAllOrders.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Home/getAllOrders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxnZXRBbGxPcmRlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Home/Index.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Home/Privacy.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Login/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Shared/Error.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Shared/_Notification.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Shared/_Notification.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/_ViewImports.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/_ViewStart.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/OneDrive/Desktop/webProject/Capstone-project/DeliverySite/Views/Shared/_Layout.cshtml]
+[C:/Users/hossi/OneDrive/Desktop/Delivery site/DeliverySite/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bnu2c1iklg
