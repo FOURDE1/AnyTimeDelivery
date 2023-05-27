@@ -84,73 +84,73 @@
         }
     </script>
             }
+            
+                <form method="post" class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" asp-controller="Home" asp-action="CreateOrderInSeparatedPage" style="background-color:#C5D5D9" enctype="multipart/form-data">
 
-            <form method="post" class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" asp-controller="Home" asp-action="CreateOrderInSeparatedPage" style="background-color:#C5D5D9" enctype="multipart/form-data">
 
+                    <div class="col-md-8 pb-3">
+                        <div class="col-md-6 ">
+                            <!-- <label for="selectedType" class="form-label bg-primary">Type</label> -->
+                            <select asp-for="TypeOfCategories" id="selectedType" class="form-select rounded-pill" required>
+                                <option value="" selected disabled>Select Type</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Clothing and fashion">Clothing and fashion</option>
+                                <option value="Food and groceries">Food and groceries</option>
+                                <option value="Home and household">Home and household</option>
+                                <option value="Health and beauty">Health and beauty</option>
+                                <option value="Office supplies">Office supplies</option>
+                                <option value="Automotive">Automotive</option>
 
-                <div class="col-md-8 pb-3">
+                            </select>
+                        </div>
+                        <div class="col-md-6 p-2 ">
+                            <label asp-for="OrderDate">Order Date:</label>
+                            <input asp-for="OrderDate" class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate"
+                                   class="form-control">
+                        </div>
+                        <div class="col">
+                            <span asp-validation-for="OrderDate" class="text-danger"></span>
+                        </div>
+                    </div>
                     <div class="col-md-6 ">
-                        <!-- <label for="selectedType" class="form-label bg-primary">Type</label> -->
-                        <select asp-for="TypeOfCategories" id="selectedType" class="form-select rounded-pill" required>
-                            <option value="" selected disabled>Select Type</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Clothing and fashion">Clothing and fashion</option>
-                            <option value="Food and groceries">Food and groceries</option>
-                            <option value="Home and household">Home and household</option>
-                            <option value="Health and beauty">Health and beauty</option>
-                            <option value="Office supplies">Office supplies</option>
-                            <option value="Automotive">Automotive</option>
+                        <input asp-for="NameOfRecipient" type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
+                               required>
+                        <div class="col">
+                            <span asp-validation-for="NameOfRecipient" class="text-danger"></span>
+                        </div>
+                    </div><br>
 
-                        </select>
-                    </div>
-                    <div class="col-md-6 p-2 ">
-                        <label asp-for="OrderDate">Order Date:</label>
-                        <input asp-for="OrderDate" class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate"
-                               class="form-control">
-                    </div>
-                    <div class="col">
-                        <span asp-validation-for="OrderDate" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <input asp-for="NameOfRecipient" type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
-                           required>
-                    <div class="col">
-                        <span asp-validation-for="NameOfRecipient" class="text-danger"></span>
-                    </div>
-                </div><br>
-
-                <div class="col-12 ">
-                    <input asp-for="PickUpLocation" type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
-                           required>
-                    <div class="col">
-                        <span asp-validation-for="PickUpLocation" class="text-danger"></span>
-                    </div>
-                </div><br>
-                <div class="col-12 ">
-                    <input asp-for="DropOffLocation" type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
-                           required>
-                    <div class="col">
-                        <span asp-validation-for="DropOffLocation" class="text-danger"></span>
-                    </div>
-                </div><br>
+                    <div class="col-12 ">
+                        <input asp-for="PickUpLocation" type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
+                               required>
+                        <div class="col">
+                            <span asp-validation-for="PickUpLocation" class="text-danger"></span>
+                        </div>
+                    </div><br>
+                    <div class="col-12 ">
+                        <input asp-for="DropOffLocation" type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
+                               required>
+                        <div class="col">
+                            <span asp-validation-for="DropOffLocation" class="text-danger"></span>
+                        </div>
+                    </div><br>
 
 
-                <div class="col-12 ">
+                    <div class="col-12 ">
 
-                    <textarea  asp-for="Comments" class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
+                        <textarea  asp-for="Comments" class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
                 placeholder="Comments" required></textarea>
-                    <div class="col">
-                        <span asp-validation-for="Comments" class="text-danger"></span>
+                        <div class="col">
+                            <span asp-validation-for="Comments" class="text-danger"></span>
+                        </div>
+
+                    </div><br>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-warning rounded-pill">Submit</button>
                     </div>
 
-                </div><br>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-warning rounded-pill">Submit</button>
-                </div>
-
-            </form>
-
+                </form>
+               
         </div>
     </div>
 </div>

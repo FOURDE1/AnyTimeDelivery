@@ -52,6 +52,7 @@ public class AccountController : Controller
         }
 
         return View(obj);
+        
     }
 
     [HttpGet]
@@ -73,7 +74,7 @@ public class AccountController : Controller
                 TempData["Success"] = "Logged in successfully";
                 if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     return Redirect(model.ReturnUrl);
-
+            
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -81,7 +82,6 @@ public class AccountController : Controller
         ModelState.AddModelError("", "Invalid username/password.");
         return View(model);
     }
-
     [HttpPost]
     public async Task<IActionResult> LogInFromHomePage(Login model)
     {
@@ -94,18 +94,19 @@ public class AccountController : Controller
                 TempData["Success"] = "Logged in successfully";
                 if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     return Redirect(model.ReturnUrl);
-
+            
                 return RedirectToAction("Index", "Home");
             }
         }
 
         ModelState.AddModelError("", "Invalid username/password.");
-        return RedirectToAction("Index", "Home", "signupPart");
+        return RedirectToAction("Index","Home", "signupPart" );
     }
 
     [HttpPost]
     public async Task<IActionResult> LogOut()
     {
+        
         await _signInManager.SignOutAsync();
         TempData["Success"] = "logged out successfully";
         return RedirectToAction("Index", "Home");

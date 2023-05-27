@@ -54,9 +54,9 @@
                     </button>
                 </div>
 
-
+               
                 <div class="flex2 text-end d-none d-md-block">
-
+                   
 
                     @if (Context.User.Identity.IsAuthenticated)
                     {
@@ -106,9 +106,8 @@
                 <a asp-controller="Home" asp-action="getAllOrders" class="nav-menu-item"><i class="fab fa-product-hunt me-3"></i>Orders</a>
                 <a asp-controller="Deliver" asp-action="Index" class="nav-menu-item"><i class="fa-solid fa-hand-back-fist me-3"></i>Grab Order</a>
                 <a asp-controller="Home" asp-action="CreateOrderInSeparatedPage" class="nav-menu-item"><i class="fas fa-dollar-sign me-3"></i>Pricing</a>
-                @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                {
-                    <a asp-controller="Administration" asp-action="ListRoles" class="nav-menu-item"><i class="fa-solid fa-user-shield"></i> Roles</a>
+                @if(SignInManager.IsSignedIn(User) && User.IsInRole("Admin")){
+                <a asp-controller="Administration" asp-action="ListRoles" class="nav-menu-item"><i class="fa-solid fa-user-shield"></i> Roles</a>
                 }
                 <a asp-controller="Home" asp-action="Index" asp-route-id="" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
 
@@ -134,7 +133,7 @@
 </header>
 @* <div class="container"> *@
 <main role="main" class="pb-3">
-    <partial class="mt-4" name="_Notification"/>
+    <partial class="mt-4" name="_Notification" />
     @RenderBody()
 </main>
 @* </div> *@
@@ -184,7 +183,7 @@
 <!-- Javascript -->
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"   ></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="~/js/indexHome.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", false)

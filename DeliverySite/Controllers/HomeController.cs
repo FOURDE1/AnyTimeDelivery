@@ -34,7 +34,6 @@ public class Home : Controller
     {
         return View(nameof(Index));
     }
-
     [HttpGet]
     public IActionResult CreateOrderInSeparatedPage()
     {
@@ -93,7 +92,7 @@ public class Home : Controller
         var orders = _ordersRepo.GetAllOrders();
         return View(orders);
     }
-
+    
     [Authorize]
     [HttpGet]
     public async Task<IActionResult> EditOrder(int id)

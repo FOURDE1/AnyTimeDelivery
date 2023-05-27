@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
 namespace DeliverySite.ViewModel;
-
 public class RegisterAppViewModel
 {
     [Key] public int Id { get; set; }
@@ -13,7 +11,7 @@ public class RegisterAppViewModel
     [Required] public string FirstName { get; set; }
 
     [Required] public string LastName { get; set; }
-    [Required] [EmailAddress] public string Email { get; set; }
+    [Required] public string Email { get; set; }
     public string PhoneNumber { get; set; }
 
 

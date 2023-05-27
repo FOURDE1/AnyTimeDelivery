@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Controllers;
-
 [Authorize(Roles = "Admin,Delivery")]
 public class DeliverController : Controller
 {
@@ -20,14 +19,14 @@ public class DeliverController : Controller
         _ordersRepo = ordersRepo;
     }
 
-
+    
     public IActionResult Index()
     {
         var orders = _loginRepo.GetAllOrders();
         return View(orders);
     }
 
-
+    
     [HttpGet]
     public async Task<IActionResult> TakeOrder(int id)
     {
@@ -35,7 +34,7 @@ public class DeliverController : Controller
 
         return View(order);
     }
-
+    
     [HttpPost]
     public async Task<IActionResult> TakingOrder(Order order, RegisterApp registerApp)
     {
