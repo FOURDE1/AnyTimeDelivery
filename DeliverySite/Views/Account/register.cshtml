@@ -1,4 +1,5 @@
-﻿@model RegisterAppViewData
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model DeliverySite.ViewModel.RegisterAppViewModel
 
 <head>
     <title>Register</title>
@@ -50,7 +51,7 @@
 
                     <div class="row">
 
-                        <form method="post" asp-controller="Account" asp-action="Register" class="row g-3 needs-validation " enctype="multipart/form-data" novalidate>
+                        <form method="post" asp-controller="Account" asp-action="Register" class="row g-3  " enctype="multipart/form-data">
                             <div class="col-md-6 col-xs-12 col-sm-12">
                                 <label asp-for="FirstName" class="form-label">First name</label>
                                 <input type="text" class="form-control" asp-for="FirstName" required>
@@ -198,7 +199,7 @@
         </div>
     </div>
 </div>
-
+<script src="js/registration-validation.js"></script>
 
 <div id="deliveryFormSection" style="display: none;">
 <!-- Delivery worker registration form elements -->

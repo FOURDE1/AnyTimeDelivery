@@ -1,6 +1,4 @@
-﻿
-
-function menuToggle() {
+﻿function menuToggle() {
     if (menuHolder.className === "drawMenu") menuHolder.className = ""
     else menuHolder.className = "drawMenu"
 }

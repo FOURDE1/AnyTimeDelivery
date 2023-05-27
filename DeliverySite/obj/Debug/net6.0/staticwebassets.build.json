@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BPHYShOUG5Fi+gng9SHVoG1Kg7g0p9BG1S1eZFFdvDE=",
+  "Hash": "Khl5D4IHqhpITfZk1kS23VFTSerrdriiZJEVVIx0aK0=",
   "Source": "DeliverySite",
   "BasePath": "_content/DeliverySite",
   "Mode": "Default",
@@ -204,6 +204,23 @@
       "OriginalItemSpec": "wwwroot\\images\\logo-cropped.svg"
     },
     {
+      "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\images\\manandthevan11.png",
+      "SourceId": "DeliverySite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\",
+      "BasePath": "_content/DeliverySite",
+      "RelativePath": "images/manandthevan11.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\manandthevan11.png"
+    },
+    {
       "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\images\\money-bag_50.png",
       "SourceId": "DeliverySite",
       "SourceType": "Discovered",
@@ -236,6 +253,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\money-bag.png"
+    },
+    {
+      "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\images\\noaccess.png",
+      "SourceId": "DeliverySite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\",
+      "BasePath": "_content/DeliverySite",
+      "RelativePath": "images/noaccess.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\noaccess.png"
     },
     {
       "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\images\\ScootScoot.svg",
@@ -491,6 +525,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\registerJs.js"
+    },
+    {
+      "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\js\\registration-validation.js",
+      "SourceId": "DeliverySite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\",
+      "BasePath": "_content/DeliverySite",
+      "RelativePath": "js/registration-validation.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\registration-validation.js"
+    },
+    {
+      "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\js\\validation.js",
+      "SourceId": "DeliverySite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\",
+      "BasePath": "_content/DeliverySite",
+      "RelativePath": "js/validation.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\validation.js"
     },
     {
       "Identity": "C:\\Users\\hossi\\OneDrive\\Desktop\\Delivery site\\DeliverySite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",

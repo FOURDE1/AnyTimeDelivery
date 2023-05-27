@@ -1,10 +1,11 @@
 ﻿using DeliverySite.Models;
 using DeliverySite.Repos;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Controllers;
 
+[Authorize(Roles = "Admin,Delivery")]
 public class DeliverController : Controller
 {
     private readonly DeliverRepo _deliverRepo;
@@ -19,14 +20,14 @@ public class DeliverController : Controller
         _ordersRepo = ordersRepo;
     }
 
-    [Authorize]
+
     public IActionResult Index()
     {
         var orders = _loginRepo.GetAllOrders();
         return View(orders);
     }
 
-    [Authorize]
+
     [HttpGet]
     public async Task<IActionResult> TakeOrder(int id)
     {

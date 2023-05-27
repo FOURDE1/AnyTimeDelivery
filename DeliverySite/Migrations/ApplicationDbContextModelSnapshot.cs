@@ -162,8 +162,9 @@ namespace DeliverySite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("DeliveryId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("DeliveryId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
                         .IsRequired()

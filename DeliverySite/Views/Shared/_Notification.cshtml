@@ -1,16 +1,57 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+
 @if (TempData["Success"] != null)
 {
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script type="text/javascript">
-        toastr.success('@TempData["success"]');
-        </script>
+        $(document).ready(function() {
+            toastr.options = {
+                closeButton: true,
+                debug: false,
+                newestOnTop: false,
+                progressBar: false,
+                positionClass: "toast-top-right",
+                preventDuplicates: false,
+                onclick: null,
+                showDuration: "200",
+                hideDuration: "500",
+                timeOut: "2000",
+                extendedTimeOut: "500",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut"
+            };
+            toastr.success('@TempData["Success"]');
+        });
+    </script>
 }
+
 @if (TempData["error"] != null)
 {
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script type="text/javascript">
-    toastr.error('@TempData["error"]');
+        $(document).ready(function() {
+            toastr.options = {
+                closeButton: true,
+                debug: false,
+                newestOnTop: false,
+                progressBar: false,
+                positionClass: "toast-top-right",
+                preventDuplicates: false,
+                onclick: null,
+                showDuration: "200",
+                hideDuration: "500",
+                timeOut: "2000",
+                extendedTimeOut: "500",
+                showEasing: "swing",
+                hideEasing: "linear",
+                showMethod: "fadeIn",
+                hideMethod: "fadeOut"
+            };
+            toastr.error('@TempData["error"]');
+        });
     </script>
 }

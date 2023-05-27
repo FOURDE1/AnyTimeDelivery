@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -53,38 +54,9 @@
                     </button>
                 </div>
 
-                @* <div class="flex2 text-end d-none d-md-block"> *@
-                @*     <button class="whiteLink siteLink"> *@
-                @*         <a style="text-decoration: none; color: inherit;" *@
-                @*            asp-controller="Account" asp-action="register"> *@
-                @*             REGISTER *@
-                @*         </a> *@
-                @*     </button> *@
-                @* *@
-                @*     @using Microsoft.AspNetCore.Identity *@
-                @*     @inject SignInManager<RegisterApp> signInManager *@
-                @*     @if (signInManager.IsSignedIn(RegisterApp)) *@
-                @*     { *@
-                @*         <button href="DeleveryLogin.html" class="Login  blackLink bg-dark siteLink"> *@
-                @*             <a *@
-                @*                 style="text-decoration: none; color: inherit;" href="SignUp.html"> *@
-                @*                 Log out *@
-                @*             </a> *@
-                @*         </button> *@
-                @*         <span class="text-light">@RegisterApp.Identity.Name</span> *@
-                @*     } *@
-                @*     <button href="DeleveryLogin.html" class="Login  blackLink bg-dark siteLink"> *@
-                @*         <a *@
-                @*             style="text-decoration: none; color: inherit;" href="SignUp.html"> *@
-                @*             Login *@
-                @*         </a> *@
-                @*     </button> *@
-                @* *@
-                @* </div> *@
+
                 <div class="flex2 text-end d-none d-md-block">
-                    @* <button class="whiteLink siteLink"> *@
-                    @*     <a style="text-decoration: none; color: inherit;" asp-controller="Account" asp-action="Register">REGISTER</a> *@
-                    @* </button> *@
+
 
                     @if (Context.User.Identity.IsAuthenticated)
                     {
@@ -129,14 +101,18 @@
                 </div>
             </div>
             <div>
+                @inject SignInManager<RegisterApp> SignInManager;
                 <a asp-controller="Home" asp-action="Index" class="nav-menu-item"><i class="fas fa-home me-3"></i>Home</a>
                 <a asp-controller="Home" asp-action="getAllOrders" class="nav-menu-item"><i class="fab fa-product-hunt me-3"></i>Orders</a>
                 <a asp-controller="Deliver" asp-action="Index" class="nav-menu-item"><i class="fa-solid fa-hand-back-fist me-3"></i>Grab Order</a>
-                <a href="#" class="nav-menu-item"><i class="fas fa-search me-3"></i>Explore</a>
-
+                <a asp-controller="Home" asp-action="CreateOrderInSeparatedPage" class="nav-menu-item"><i class="fas fa-dollar-sign me-3"></i>Pricing</a>
+                @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Administration" asp-action="ListRoles" class="nav-menu-item"><i class="fa-solid fa-user-shield"></i> Roles</a>
+                }
                 <a asp-controller="Home" asp-action="Index" asp-route-id="" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
-                <a href="#" class="nav-menu-item"><i class="fas fa-dollar-sign me-3"></i>Pricing</a>
-                <a href="#" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>Blog</a>
+
+                <a asp-controller="Home" asp-action="AboutUs" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>AboutUS</a>
 
             </div>
         </div>
@@ -158,19 +134,20 @@
 </header>
 @* <div class="container"> *@
 <main role="main" class="pb-3">
+    <partial class="mt-4" name="_Notification"/>
     @RenderBody()
 </main>
 @* </div> *@
 
 <!-- FOOTER -->
-<footer class="FooterPart container-fluid ">
+<footer id="footer" class="FooterPart container-fluid">
     <div class="container py-2">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 d-none d-md-block">
                 <h4>About Us</h4>
                 <p>
                     Founded in 2023, our delivery service aims to bring convenience and joy to our customers' lives. We pride
-                    ourselves on reliability, speed, and top-notch customer service..
+                    ourselves on reliability, speed, and top-notch customer service.
                 </p>
             </div>
 
@@ -180,31 +157,35 @@
             </div>
             <div class="col-md-4">
                 <h4>Connect with Us</h4>
-                <a href="https://www.linkedin.com/in/hossien-raad-326a71227/" class="btn btn-linkedin">
-                    <i
-                        class="bi bi-linkedin">
-                    </i>
-                </a>
-                <a href="#" class="btn btn-twitter">
-                    <i class="bi bi-twitter"></i>
-                </a>
-                <a href="#" class="btn btn-instagram">
-                    <i class="bi bi-instagram"></i>
-                </a>
+                <div class="d-flex">
+                    <a href="https://www.linkedin.com/in/hossien-raad-326a71227/" class="btn btn-linkedin me-2">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="#" class="btn btn-twitter me-2">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="#" class="btn btn-instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                </div>
             </div>
         </div>
         <hr>
-        <div class="row ">
-            <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 text-center">
                 <p>&copy; 2023 Our Delivery Company. All rights reserved.</p>
             </div>
         </div>
     </div>
 </footer>
+
+
 <div class="topDiv  bg-dark p-3  text-white "></div>
 <!-- Javascript -->
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="~/js/indexHome.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", false)
 </body>

@@ -19,7 +19,7 @@ public class Home : Controller
 
     public IActionResult Index()
     {
-        OrderRegisterAppLoginViewData orderRegisterAppLoginViewData = new OrderRegisterAppLoginViewData()
+        var orderRegisterAppLoginViewData = new OrderRegisterAppLoginViewData
         {
             registerApp = new RegisterApp(),
             order = new Order(),
@@ -35,6 +35,7 @@ public class Home : Controller
         return View(nameof(Index));
     }
 
+    [HttpGet]
     public IActionResult CreateOrderInSeparatedPage()
     {
         return View();
@@ -46,34 +47,37 @@ public class Home : Controller
     public async Task<RedirectToActionResult> CreateOrderInSeparatedPage(Order order)
 
     {
-        try
-        {
-            if (ModelState.IsValid)
-                await _ordersRepo.AddAsync(order);
-            else
-                return RedirectToAction(nameof(Index));
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error adding order: {ex.Message}"); // Debug statement
-        }
-
+        // var orderToPass = new OrderRegisterAppLoginViewData
+        // {
+        //     order = orderRegisterAppLoginViewData.order
+        // };
+        // var Order = orderToPass.order;
+        if (!ModelState.IsValid) return RedirectToAction(nameof(Index), order);
+        await _ordersRepo.AddAsync(order);
+        TempData["Success"] = "Order Created successfully";
         return RedirectToAction(nameof(getAllOrders));
+
+
+        // return RedirectToAction(nameof(getAllOrders));
+        // return View(nameof(getAllOrders));
+        // return RedirectToAction(nameof(getAllOrders));
     }
 
     // OrderController
     [Authorize]
     [HttpPost]
     // public async Task<IActionResult> createOrder(order Order)
-    public async Task<RedirectToActionResult> CreateOrder(OrderRegisterAppLoginViewData orderRegisterAppLoginViewData)
+    public async Task<RedirectToActionResult> CreateOrder(Order order)
 
     {
-        OrderRegisterAppLoginViewData orderToPass = new OrderRegisterAppLoginViewData
-        {
-            order = orderRegisterAppLoginViewData.order
-        };
-        if (!ModelState.IsValid) return RedirectToAction(nameof(Index), orderToPass);
-        await _ordersRepo.AddAsync(orderRegisterAppLoginViewData.order);
+        // var orderToPass = new OrderRegisterAppLoginViewData
+        // {
+        //     order = orderRegisterAppLoginViewData.order
+        // };
+        // var Order = orderToPass.order;
+        if (!ModelState.IsValid) return RedirectToAction(nameof(Index), order);
+        await _ordersRepo.AddAsync(order);
+        TempData["Success"] = "Order Created successfully";
         return RedirectToAction(nameof(getAllOrders));
 
 
@@ -124,7 +128,7 @@ public class Home : Controller
         // };
         _ordersRepo.UpdateAsync(order);
         // _ordersRepo.DeleteAsync(id - 1);
-
+        TempData["Success"] = "Order Edited successfully";
         return RedirectToAction(nameof(getAllOrders));
     }
 
@@ -144,7 +148,13 @@ public class Home : Controller
         if (order == null) return View("Error");
 
         if (ModelState.IsValid) await _ordersRepo.DeleteAsync(id);
-
+        TempData["Success"] = "Order Deleted successfully";
         return RedirectToAction(nameof(getAllOrders));
+    }
+
+    [HttpGet]
+    public IActionResult AboutUs()
+    {
+        return View();
     }
 }

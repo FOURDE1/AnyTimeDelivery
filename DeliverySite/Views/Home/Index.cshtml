@@ -12,10 +12,10 @@
 <!-- BODY PART 1 -->
 <div class="BodyPart1 d-flex justify-content-center align-items-center container-fluid">
     <div class="row">
-        <div class="Leftimage p-5 mg-4 col-md-6">
-            <img width="100%" src="images/delivery.png" alt="Delivery">
+        <div class="Leftimage p-5 mg-4 col-md-6 col-sm-6">
+            <img class="img-fluid" src="images/delivery.png" alt="Delivery">
         </div>
-        <div class="RightContent col-md-6 d-flex flex-column justify-content-center align-items-center">
+        <div class="RightContent col-md-6 col-sm-6 d-flex flex-column justify-content-center align-items-center">
             <div class="align-self-start">
                 <h3 class="fw-bold mt-3 text-primary text-uppercase display-7 mb-5">
                     Be Your Own Boss with Flexible
@@ -227,6 +227,7 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
             </div>
 
         </form>
+        <script src="js/validation.js"></script>
     </div>
 </div>
 
@@ -246,7 +247,7 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
                                              style="width: 200px;" alt="logo">
                                     </div>
 
-                                    <form asp-controller="Account" method="post" asp-action="LogIn" asp-route-returnURL="@Model.login.ReturnUrl" class="my-3">
+                                    <form asp-controller="Account" method="post" asp-action="LogInFromHomePage" class="my-3">
                                         <div class="my-3">
                                             <input type="text" id="form2Example11" class="form-control" asp-for="login.Username" placeholder="Username"/>
                                         </div>
@@ -302,38 +303,42 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
         </div>
     </section>
     <div id="delivery-Info" class="delivery-info" hidden>
-        <div class="row py-5 ">
-
+        <div class="row py-5">
             <div class="col-lg-7 mx-auto">
-                <div class="delivery-info ">
+                <div class="delivery-info">
                     <div class="text-center">
                         <h2 class="h1-responsive p-3">Deliver and Earn</h2>
-                        <p>Join our delivery network and start earning income on your own schedule.</p>
+                        <p class="mb-4">Join our delivery network and start earning income on your own schedule.</p>
                     </div>
                     <div class="card shadow mb-4">
                         <div class="card-body p-5">
-                            <!-- List with icons -->
-                            <h4 class="mb-4">List with icons</h4>
-                            <ul class="list-unstyled list pl-5">
-                                <li class="mb-3 d-flex align-items-center"><i class="fas fa-clock"></i>&nbsp &nbspFlexible working hours</li>
-                                <li class="mb-3 d-flex align-items-center"><i class="fas fa-dollar-sign"></i>&nbsp &nbspOpportunity to earn extra income</li>
-                                <li class="mb-3 d-flex align-items-center"><i class="fas fa-check-circle"></i>&nbsp &nbspDelivery training provided</li>
-                                <li class="mb-3 d-flex align-items-center"><i class="fas fa-mobile-alt"></i>&nbsp &nbspEasy-to-use delivery app</li>
-                                <li class="mb-3 d-flex align-items-center"><i class="fas fa-users"></i>&nbsp&nbsp Supportive community of drivers</li>
-
-                            </ul>
-
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4 class="mb-4">Benefits of Joining</h4>
+                                    <ul class="list-unstyled list-custom pl-4">
+                                        <li class="mb-3 d-flex align-items-center"><i class="fas fa-clock"></i>&nbsp;&nbsp;Flexible working hours</li>
+                                        <li class="mb-3 d-flex align-items-center"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Opportunity to earn extra income</li>
+                                        <li class="mb-3 d-flex align-items-center"><i class="fas fa-check-circle"></i>&nbsp;&nbsp;Delivery training provided</li>
+                                        <li class="mb-3 d-flex align-items-center"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;Easy-to-use delivery app</li>
+                                        <li class="mb-3 d-flex align-items-center"><i class="fas fa-users"></i>&nbsp;&nbsp;Supportive community of drivers</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <img class="img-fluid" src="images/manandthevan11.png" style="max-height: 100%; max-width: 100%;"/>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-
-                </div>
-                <div id="SignUpFromHome" class="text-center">
-                    <a asp-controller="Account" asp-action="Register" class="btn btn-primary mt-3">Sign Up Now</a>
-
+                    <div id="SignUpFromHome" class="text-center">
+                        <a asp-controller="Account" asp-action="Register" class="btn btn-primary mt-3 mx-2">Sign Up Now</a>
+                        <a asp-controller="Home" asp-action="getAllOrders" class="btn btn-warning mt-3">Deliver Now</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 </div>
@@ -347,10 +352,7 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
             <div class="col-md-10 col-xl-8 text-center">
                 <h3 class="mb-4">Testimonials</h3>
                 <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
-                    numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
-                    quisquam eum porro a pariatur veniam.
-
+                    Hear what our clients have to say about us.
                 </p>
             </div>
         </div>
@@ -358,15 +360,12 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
         <div class="row text-center">
             <div class="col-md-4 mb-5 mb-md-0">
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
-                         class="rounded-circle shadow-1-strong" width="150" height="150"/>
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" class="rounded-circle shadow-1-strong" width="150" height="150" alt="Maria Smantha">
                 </div>
                 <h5 class="mb-3">Maria Smantha</h5>
                 <h6 class="text-primary mb-3">Web Developer</h6>
                 <p class="px-xl-3">
-                    <i class="fas fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic
-                    tenetur.
+                    "I'm impressed with the reliability and speed of the AnyTime Delivery service. It has made my life so much easier!"
                 </p>
                 <ul class="list-unstyled d-flex justify-content-center mb-0">
                     <li>
@@ -388,14 +387,12 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
             </div>
             <div class="col-md-4 mb-5 mb-md-0">
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
-                         class="rounded-circle shadow-1-strong" width="150" height="150"/>
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp" class="rounded-circle shadow-1-strong" width="150" height="150" alt="Lisa Cudrow">
                 </div>
                 <h5 class="mb-3">Lisa Cudrow</h5>
                 <h6 class="text-primary mb-3">Graphic Designer</h6>
                 <p class="px-xl-3">
-                    <i class="fas fa-quote-left pe-2"></i>Ut enim ad minima veniam, quis nostrum
-                    exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid commodi.
+                    "I love the convenience and top-notch customer service provided by AnyTime Delivery. Highly recommended!"
                 </p>
                 <ul class="list-unstyled d-flex justify-content-center mb-0">
                     <li>
@@ -417,14 +414,12 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
             </div>
             <div class="col-md-4 mb-0">
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
-                         class="rounded-circle shadow-1-strong" width="150" height="150"/>
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp" class="rounded-circle shadow-1-strong" width="150" height="150" alt="John Smith">
                 </div>
                 <h5 class="mb-3">John Smith</h5>
                 <h6 class="text-primary mb-3">Marketing Specialist</h6>
                 <p class="px-xl-3">
-                    <i class="fas fa-quote-left pe-2"></i>At vero eos et accusamus et iusto odio
-                    dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.
+                    "AnyTime Delivery has revolutionized our delivery process. The speed and efficiency are unparalleled."
                 </p>
                 <ul class="list-unstyled d-flex justify-content-center mb-0">
                     <li>
@@ -446,6 +441,7 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
             </div>
         </div>
     </section>
+
 </div>
 
 </Main>
