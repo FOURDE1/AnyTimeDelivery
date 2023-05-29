@@ -60,4 +60,9 @@ public class OrdersRepo
             throw;
         }
     }
+    public IEnumerable<Order> GetOrdersByRegisterAppId(string registerAppId)
+    {
+        return _db.Orders.Where(o => o.RegisterAppId == registerAppId).ToList();
+    }
+
 }

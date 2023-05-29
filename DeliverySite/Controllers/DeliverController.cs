@@ -35,20 +35,20 @@ public class DeliverController : Controller
         return View(order);
     }
     
-    [HttpPost]
-    public async Task<IActionResult> TakingOrder(Order order, RegisterApp registerApp)
-    {
-        // var takenOrder = new TakenOrder()
-        // {
-        //     FirstName = registerApp.FirstName,
-        //     LastName = registerApp.LastName,
-        //     DeliveryId = registerApp.Id,
-        //     PhoneNb = registerApp.PhoneNb,
-        //     OrderId = order.Id
-        //
-        // };
-        await _deliverRepo.TakeOrder(order, registerApp);
-
-        return Ok("Done");
-    }
+    // [HttpPost]
+    // public async Task<IActionResult> TakingOrder(Order order, RegisterApp registerApp)
+    // {
+    //     // var takenOrder = new TakenOrder()
+    //     // {
+    //     //     FirstName = registerApp.FirstName,
+    //     //     LastName = registerApp.LastName,
+    //     //     DeliveryId = registerApp.Id,
+    //     //     PhoneNb = registerApp.PhoneNb,
+    //     //     OrderId = order.Id
+    //     //
+    //     // };
+    //     await _deliverRepo.TakeOrder(order, registerApp);
+    //
+    //     return Ok("Done");
+    // }
 }

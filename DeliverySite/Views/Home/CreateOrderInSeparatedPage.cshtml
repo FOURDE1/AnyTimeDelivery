@@ -1,4 +1,6 @@
-﻿@model Order
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Order
 
 @{
     ViewBag.Title = "title";
@@ -85,7 +87,7 @@
     </script>
             }
             
-                <form method="post" class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" asp-controller="Home" asp-action="CreateOrderInSeparatedPage" style="background-color:#C5D5D9" enctype="multipart/form-data">
+                <form method="post" class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" asp-controller="Home" asp-action="CreateOrder" style="background-color:#C5D5D9" enctype="multipart/form-data">
 
 
                     <div class="col-md-8 pb-3">
@@ -142,6 +144,7 @@
                 placeholder="Comments" required></textarea>
                         <div class="col">
                             <span asp-validation-for="Comments" class="text-danger"></span>
+                              <input type="hidden" asp-for="RegisterAppId" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
                         </div>
 
                     </div><br>

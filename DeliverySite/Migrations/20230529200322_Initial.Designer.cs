@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliverySite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230527120655_Initial")]
+    [Migration("20230529200322_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -41,6 +41,10 @@ namespace DeliverySite.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PickUpLocation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RegisterAppId")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -157,35 +161,6 @@ namespace DeliverySite.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("DeliverySite.Models.TakenOrder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("DeliveryId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PhoneNb")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TakenOrders");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -41,6 +41,10 @@ namespace DeliverySite.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("RegisterAppId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("TypeOfCategories")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -154,35 +158,6 @@ namespace DeliverySite.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("DeliverySite.Models.TakenOrder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("DeliveryId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PhoneNb")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TakenOrders");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -12,7 +12,7 @@ public class ApplicationDbContext : IdentityDbContext<RegisterApp>
 
     public DbSet<RegisterApp> RegisterApps { get; set; }
     public DbSet<Order> Orders { get; set; }
-    public DbSet<TakenOrder> TakenOrders { get; set; }
+    // public DbSet<TakenOrder> TakenOrders { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

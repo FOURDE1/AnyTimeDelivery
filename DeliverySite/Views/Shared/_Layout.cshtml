@@ -109,7 +109,7 @@
                 @if(SignInManager.IsSignedIn(User) && User.IsInRole("Admin")){
                 <a asp-controller="Administration" asp-action="ListRoles" class="nav-menu-item"><i class="fa-solid fa-user-shield"></i> Roles</a>
                 }
-                <a asp-controller="Home" asp-action="Index" asp-route-id="" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Services</a>
+               
 
                 <a asp-controller="Home" asp-action="AboutUs" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>AboutUS</a>
 

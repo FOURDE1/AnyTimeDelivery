@@ -143,7 +143,7 @@ public class AdministrationController : Controller
 
         for (int i = 0; i < model.Count; i++)
         {
-         var user=await   userManager.FindByIdAsync(model[i].UserId.ToString());
+         var user=await   userManager.FindByIdAsync(model[i].UserId);
          IdentityResult result = null;
          if (model[i].IsSelected && !(await userManager.IsInRoleAsync(user,role.Name)))
          {
