@@ -5,7 +5,7 @@ namespace DeliverySite.Models;
 
 public class RegisterApp : IdentityUser
 {
-    [Key] public int Id { get; set; }
+    
 
     [Required] public string FirstName { get; set; }
 
@@ -38,4 +38,6 @@ public class RegisterApp : IdentityUser
     public string Password { get; set; } // Property to store the input value of the password
 
     [Required] public string VerifyPassword1 { get; set; }
+
+    public ICollection<Order> Orders;
 }

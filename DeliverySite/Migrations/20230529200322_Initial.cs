@@ -73,28 +73,12 @@ namespace DeliverySite.Migrations
                     NameOfRecipient = table.Column<string>(type: "TEXT", nullable: false),
                     PickUpLocation = table.Column<string>(type: "TEXT", nullable: false),
                     DropOffLocation = table.Column<string>(type: "TEXT", nullable: false),
-                    Comments = table.Column<string>(type: "TEXT", nullable: true)
+                    Comments = table.Column<string>(type: "TEXT", nullable: true),
+                    RegisterAppId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TakenOrders",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    DeliveryId = table.Column<string>(type: "TEXT", nullable: false),
-                    OrderId = table.Column<int>(type: "INTEGER", nullable: false),
-                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
-                    LastName = table.Column<string>(type: "TEXT", nullable: false),
-                    PhoneNb = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TakenOrders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -261,9 +245,6 @@ namespace DeliverySite.Migrations
 
             migrationBuilder.DropTable(
                 name: "Orders");
-
-            migrationBuilder.DropTable(
-                name: "TakenOrders");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

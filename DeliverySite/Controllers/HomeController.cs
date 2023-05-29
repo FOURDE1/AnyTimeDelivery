@@ -1,7 +1,9 @@
-﻿using DeliverySite.Models;
+﻿using System.Security.Claims;
+using DeliverySite.Models;
 using DeliverySite.Repos;
 using DeliverySite.ViewModel;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Controllers;
@@ -9,9 +11,10 @@ namespace DeliverySite.Controllers;
 public class Home : Controller
 {
     private readonly OrdersRepo _ordersRepo;
-
-    public Home(OrdersRepo ordersRepo)
+    private readonly UserManager<RegisterApp> _userManager;
+    public Home(OrdersRepo ordersRepo,UserManager<RegisterApp>userManager)
     {
+        _userManager = userManager;
         _ordersRepo = ordersRepo;
     }
 
@@ -45,53 +48,70 @@ public class Home : Controller
     // public async Task<IActionResult> createOrder(order Order)
     public async Task<RedirectToActionResult> CreateOrderInSeparatedPage(Order order)
 
-    {
-        // var orderToPass = new OrderRegisterAppLoginViewData
-        // {
-        //     order = orderRegisterAppLoginViewData.order
-        // };
-        // var Order = orderToPass.order;
-        if (!ModelState.IsValid) return RedirectToAction(nameof(Index), order);
+    { if (!ModelState.IsValid)
+        {
+            // Handle invalid model state
+            return RedirectToAction("CreateOrderInSeparatedPage", order);
+        }
+
+        // Get the currently authenticated user's identity user ID
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        // Set the RegisterAppId property of the order to the identity user ID
+        order.RegisterAppId = userId;
+
+        // Add the order to the repository
         await _ordersRepo.AddAsync(order);
-        TempData["Success"] = "Order Created successfully";
+
+        TempData["Success"] = "Order created successfully";
         return RedirectToAction(nameof(getAllOrders));
-
-
-        // return RedirectToAction(nameof(getAllOrders));
-        // return View(nameof(getAllOrders));
-        // return RedirectToAction(nameof(getAllOrders));
     }
 
     // OrderController
     [Authorize]
     [HttpPost]
-    // public async Task<IActionResult> createOrder(order Order)
     public async Task<RedirectToActionResult> CreateOrder(Order order)
-
     {
-        // var orderToPass = new OrderRegisterAppLoginViewData
-        // {
-        //     order = orderRegisterAppLoginViewData.order
-        // };
-        // var Order = orderToPass.order;
-        if (!ModelState.IsValid) return RedirectToAction(nameof(Index), order);
+        if (!ModelState.IsValid)
+        {
+            // Handle invalid model state
+            return RedirectToAction("CreateOrderInSeparatedPage", order);
+        }
+
+        // Get the currently authenticated user's identity user ID
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        // Set the RegisterAppId property of the order to the identity user ID
+        order.RegisterAppId = userId;
+
+        // Add the order to the repository
         await _ordersRepo.AddAsync(order);
-        TempData["Success"] = "Order Created successfully";
+
+        TempData["Success"] = "Order created successfully";
         return RedirectToAction(nameof(getAllOrders));
-
-
-        // return RedirectToAction(nameof(getAllOrders));
-        // return View(nameof(getAllOrders));
-        // return RedirectToAction(nameof(getAllOrders));
     }
+
+
+
 
     [Authorize]
     [HttpGet]
     public IActionResult getAllOrders()
     {
-        var orders = _ordersRepo.GetAllOrders();
-        return View(orders);
+        if (User.IsInRole("Admin"))
+        {
+            var orders = _ordersRepo.GetAllOrders();
+            return View(orders);
+        }
+        else
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var orders = _ordersRepo.GetOrdersByRegisterAppId(userId);
+            return View(orders);
+        }
     }
+
+
     
     [Authorize]
     [HttpGet]

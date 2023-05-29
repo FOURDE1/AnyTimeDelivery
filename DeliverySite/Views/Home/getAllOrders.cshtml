@@ -1,5 +1,7 @@
-﻿@model IEnumerable<Order>
-
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Order>
+ @inject UserManager<RegisterApp> _userManager;
 @* @{ *@
 @*     ViewBag.Title = "title"; *@
 @*     Layout = "_Layout"; *@
@@ -43,46 +45,59 @@
                     dropOff location
                 </th>
                 <th scope="col">comments</th>
-
+            @if (User.IsInRole("Admin")){
+                
+                       <th scope="col">Client Username</th>
+                   
+               }
             </tr>
             </thead>
             <tbody>
 
-            @foreach (var obj in Model) // it will display each row in database by a foreach loop that iterates over objects in Model
-            {
-                <tr>
-                    <td>
-                        @obj.Id
-                    </td>
-                    <td>
-                        @obj.TypeOfCategories
-                    </td>
-                    <td>@obj.NameOfRecipient</td>
-                    <td>@obj.PickUpLocation</td>
-                    <td>@obj.DropOffLocation</td>
-                    <td>@obj.Comments</td>
-                    @* <td>@obj.Price</td> *@
+       @foreach (var obj in Model)
+       {
+           <tr>
+               <td>
+                   @obj.Id
+               </td>
+               <td>
+                   @obj.TypeOfCategories
+               </td>
+               <td>@obj.NameOfRecipient</td>
+               <td>@obj.PickUpLocation</td>
+               <td>@obj.DropOffLocation</td>
+               <td>@obj.Comments</td>
+               @* <td>@obj.Price</td> *@
+              
+                @if (User.IsInRole("Admin")){
+               
+               var user = await _userManager.FindByIdAsync(obj.RegisterAppId);
+                   if (user != null)
+                   {
+                       <td>@user.UserName</td>
+                   }
+               }
+               
+               <td>
+                   <div class="w-75 btn-group" role="group">
+                       <a asp-controller="Home" method="post" asp-action="EditOrder" asp-route-id="@obj.Id"
+                          class="btn btn-primary m-2">
+                           <i class="bi bi-pencil-square"></i>
+                       </a>
+                   </div>
+               </td>
+               <td>
+                   <div class="w-75 btn-group" role="group">
+                       <a asp-controller="Home" method="post" asp-action="DeleteOrder" asp-route-id="@obj.Id"
+                          class="btn btn-danger m-2">
+                           <i class="bi bi-trash"></i>
+                       </a>
+                   </div>
+               </td>
+           </tr>
+       }
 
 
-                    <td>
-                        <div class="w-75 btn-group" role="group">
-                            <a asp-controller="Home" method="post" asp-action="EditOrder" asp-route-id="@obj.Id"
-                               class="btn btn-primary m-2">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="w-75 btn-group" role="group">
-                            <a asp-controller="Home" method="post" asp-action="DeleteOrder" asp-route-id="@obj.Id"
-                               class="btn btn-danger m-2">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </div>
-
-                    </td>
-                </tr>
-            }
             </tbody>
 
         </table>

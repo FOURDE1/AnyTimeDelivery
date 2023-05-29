@@ -12,17 +12,17 @@ public class DeliverRepo
         _db = db;
     }
 
-    public async Task TakeOrder(Order order, RegisterApp registerApp)
-    {
-        var takenOrder = new TakenOrder
-        {
-            DeliveryId = registerApp.Id,
-            FirstName = "Abbes",
-            LastName = "Moussawi",
-            PhoneNb = 81753181,
-            OrderId = order.Id
-        };
-        _db.TakenOrders.AddAsync(takenOrder);
-        await _db.SaveChangesAsync();
-    }
+    // public async Task TakeOrder(Order order, RegisterApp registerApp)
+    // {
+    //     var takenOrder = new TakenOrder
+    //     {
+    //         DeliveryId = registerApp.Id,
+    //         FirstName = "Abbes",
+    //         LastName = "Moussawi",
+    //         PhoneNb = 81753181,
+    //         OrderId = order.Id
+    //     };
+    //     _db.TakenOrders.AddAsync(takenOrder);
+    //     await _db.SaveChangesAsync();
+    // }
 }
