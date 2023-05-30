@@ -4,6 +4,7 @@ using DeliverySite.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 
 namespace DeliverySite.Controllers;
 
@@ -173,4 +174,19 @@ public class AdministrationController : Controller
 
         return RedirectToAction("EditRole",new {Id =roleId});
     }
+
+    // [HttpPost]
+    // public async Task<IActionResult> DeleteUserAsync(string id)
+    // {   var role = await roleManager.FindByIdAsync(roleId);
+    //     var user = await userManager.FindByIdAsync(id);
+    //     if (user != null)
+    //         
+    //     {
+    //         await  userManager.RemoveFromRoleAsync(user, role.Name);
+    //         await userManager.DeleteAsync(user);
+    //     }
+    //
+    //     return RedirectToAction("EditUsersInRole");
+    // }
+
 }

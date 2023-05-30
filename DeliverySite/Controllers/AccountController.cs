@@ -12,13 +12,15 @@ public class AccountController : Controller
     private readonly SignInManager<RegisterApp> _signInManager;
     private readonly SignUpRepo _signUpRepo;
     private readonly UserManager<RegisterApp> _userManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
 
     public AccountController(SignUpRepo signUpRepo, UserManager<RegisterApp> userManager,
-        SignInManager<RegisterApp> signInManager)
+        SignInManager<RegisterApp> signInManager,RoleManager<IdentityRole> roleManager)
     {
         _signUpRepo = signUpRepo;
         _signInManager = signInManager;
         _userManager = userManager;
+        _roleManager = roleManager;
     }
 
     public IActionResult Register()
@@ -29,18 +31,39 @@ public class AccountController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> RegisterAsync(RegisterAppViewModel obj)
+    public async Task<IActionResult> RegisterAsync(RegisterAppViewModel obj,string UserType)
     {
+        if (UserType =="delivery")
+        {
+            obj.IsADelivery = true;
+
+        }
+        else
+        {
+            obj.IsADelivery = false;
+        }
         if (ModelState.IsValid)
         {
             var user = new RegisterApp
             {
-                UserName = obj.UserName, Password = obj.Password, PhoneNumber = obj.PhoneNumber,
-                FirstName = obj.FirstName, LastName = obj.LastName, Email = obj.Email, NationalId = obj.NationalId,
-                City = obj.City, Payment = obj.Payment, VerifyPassword1 = obj.VerifyPassword1
-            }; // TODO this my be needed
-            // var username = user.UserName;
+                UserName = obj.UserName, Password = obj.Password, PhoneNumber = obj.PhoneNumber, ImageDataDriverLi = obj.ImageDataDriverLi,
+                FirstName = obj.FirstName, LastName = obj.LastName, Email = obj.Email, NationalId = obj.NationalId, IsADelivery = obj.IsADelivery,
+                City = obj.City, Payment = obj.Payment, VerifyPassword1 = obj.VerifyPassword1,DeliveryVehicle = obj.DeliveryVehicle,ImageDataSelfie = obj.ImageDataSelfie 
+            };
+            
+            
+            
             var result = await _userManager.CreateAsync(user, obj.Password);
+            if(user.IsADelivery){
+                var role = await _roleManager.FindByNameAsync("Delivery");
+                await _userManager.AddToRoleAsync(user, role.Name);
+                
+            }
+            else
+            {
+                var role = await _roleManager.FindByNameAsync("Client");
+                await _userManager.AddToRoleAsync(user, role.Name);
+            }
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, false);
@@ -92,9 +115,6 @@ public class AccountController : Controller
             if (result.Succeeded)
             {
                 TempData["Success"] = "Logged in successfully";
-                if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-                    return Redirect(model.ReturnUrl);
-            
                 return RedirectToAction("Index", "Home");
             }
         }
