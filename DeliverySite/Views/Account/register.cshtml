@@ -18,17 +18,11 @@
             <button id="clientButton" type="button" class="btn btn-primary btn-lg">Normal Client</button>
         </div>
         <div class="col-6 d-flex justify-content-center">
-            <input type="hidden" id="IsADelivery" name="IsADelivery"/>
+            
 
             <button id="deliveryButton" type="button" class="btn btn-primary btn-lg">Delivery Worker</button>
 
-            <script>
-                  function setIsADelivery(value) {
-                    const isADeliveryInput = document.getElementById('IsADelivery');
-                    isADeliveryInput.value = value;
-                  }
-            </script>
-
+           
 
         </div>
     </div>
@@ -86,6 +80,7 @@
                                 </div>
                                 <div class="col">
                                     <span asp-validation-for="UserName" class="text-danger"></span>
+                                    <input hidden name="UserType" value="client">
                                 </div>
                             </div>
                             <div class="col-md-6 col-xs-12 col-sm-12">
@@ -362,6 +357,7 @@
                                 var atSymbol = "@";
                             }
                             <span class="input-group-text" id="inputGroupPrepend">@atSymbol</span>
+                            <input hidden name="UserType" value="delivery">
                             <input asp-for="UserName" type="text" class="form-control" id="validationCustomUsername"
                                    aria-describedby="inputGroupPrepend" required>
 
