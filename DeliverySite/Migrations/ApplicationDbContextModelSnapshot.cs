@@ -26,9 +26,16 @@ namespace DeliverySite.Migrations
                     b.Property<string>("Comments")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("DeliveryId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("DropOffLocation")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsTaken")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("NameOfRecipient")
                         .IsRequired()

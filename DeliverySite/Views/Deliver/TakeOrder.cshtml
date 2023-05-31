@@ -1,40 +1,77 @@
 ﻿@model Order
-@* TakingOrder *@
-<form method="post" asp-controller="Deliver" asp-action="">
-    <input asp-for="Id" hidden/>
-    <div class="border p-3 mt-4">
-        <div class="row pb-2">
-            <h2 class="text-primary">Confirm taking order</h2>
-            <hr/>
-        </div>
-        @*<div asp-validation-summary="All"></div>*@
-        <div class="mb-3">
-            <label asp-for="Id"></label>
-            <input asp-for="Id" disabled class="form-control"/>
-        </div>
-        <div class="mb-3">
-            <label asp-for="NameOfRecipient"></label>
-            <input asp-for="NameOfRecipient" disabled class="form-control"/>
-        </div>
-        <div class="mb-3">
-            <label asp-for="DropOffLocation"></label>
-            <input asp-for="DropOffLocation" disabled class="form-control"/>
-        </div>
 
-        <div class="mb-3">
-            <label asp-for="OrderDate"></label>
-            <input asp-for="OrderDate" disabled class="form-control"/>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Comments"></label>
-            <input asp-for="Comments" disabled class="form-control"/>
-        </div>
 
-        <button type="submit" class="btn btn-danger" style="width:150px">Confirm Taking Order </button>
-        <a asp-controller="Deliver" asp-action="Index" class="btn btn-secondary" style="width:150px">
-            Back to List
-        </a>
+<form method="post" asp-controller="Deliver" asp-action="TakingOrder" style="background-color:#C5D5D9"
+      class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" >
+
+    <div class="col-md-8 pb-3">
+        <div class="col-md-6 ">
+            <label asp-for="TypeOfCategories" class="form-label ">Type</label>
+            <select asp-for="TypeOfCategories" name="type" id="selectedType" class="form-select rounded-pill" required>
+                <option value=""  disabled>Select Type</option>
+                <option value="Electronics" asp-selected="@Model.TypeOfCategories == 'Clothing and fashion'">Electronics</option>
+                <option value="Clothing and fashion" asp-selected="@Model.TypeOfCategories == 'Clothing and fashion'">Clothing and fashion</option>
+                <option value="Food and groceries" asp-selected="@Model.TypeOfCategories == 'Food and groceries'">Food and groceries</option>
+                <option value="Home and household" asp-selected="@Model.TypeOfCategories == 'Home and household'">Home and household</option>
+                <option value="Health and beauty" asp-selected="@Model.TypeOfCategories == 'Health and beauty'" >Health and beauty</option>
+                <option value="Office supplies"asp-selected="@Model.TypeOfCategories == 'Office supplies'">Office supplies</option>
+                <option value="Automotive"asp-selected="@Model.TypeOfCategories == 'Automotive'">Automotive</option>
+
+            </select>
+        </div>
+        <div class="col-md-6 p-2 ">
+            <label asp-for="OrderDate" >Order Date:</label>
+            <input asp-for="OrderDate" class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate"
+                   class="form-control">
+        </div>
     </div>
+    <div class="col-md-6 ">
+        <label asp-for="NameOfRecipient" >Name Of Recipient:</label>
+        <input asp-for="NameOfRecipient" type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
+               required>
+        <div class="valid-feedback">
+            looks good
+        </div>
+    </div><br>
+
+    <div class="col-12 ">
+        <label asp-for="PickUpLocation" >Pick Up Location:</label>
+        <input asp-for="PickUpLocation" type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
+               required>
+        <div class="valid-feedback">
+            looks good
+        </div>
+    </div><br>
+    <div class="col-12 ">
+        <label asp-for="DropOffLocation" >Drop Off Location:</label>
+        <input asp-for="DropOffLocation" type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
+               required>
+        <div class="valid-feedback">
+            looks good
+        </div>
+    </div>
+    <br>
+
+
+    <div class="col-12 ">
+        <label asp-for="Comments" >Comment :</label>
+        <textarea  asp-for="Comments" class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
+                 placeholder="Comments" required></textarea>
+        
+    </div>
+    <div>
+        <input type="text" asp-for="RegisterAppId" value="@Model.RegisterAppId" hidden="">
+    </div>
+    
+    <br>
+    <div class="col-12">
+        <button type="submit" class="btn btn-warning rounded-pill">Take Order</button>
+        @* <a asp-controller="Home" asp-action="getAllOrders" class="btn btn-secondary rounded-pill" style="width:150px"> *@
+        @*     Back to List *@
+        @* </a> *@
+    </div>
+
+
 </form>
 
 @section Scripts{

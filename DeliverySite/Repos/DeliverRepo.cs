@@ -1,5 +1,6 @@
 ﻿using DeliverySite.Data;
 using DeliverySite.Models;
+using DeliverySite.ViewModel;
 
 namespace DeliverySite.Repos;
 
@@ -12,17 +13,14 @@ public class DeliverRepo
         _db = db;
     }
 
-    // public async Task TakeOrder(Order order, RegisterApp registerApp)
-    // {
-    //     var takenOrder = new TakenOrder
-    //     {
-    //         DeliveryId = registerApp.Id,
-    //         FirstName = "Abbes",
-    //         LastName = "Moussawi",
-    //         PhoneNb = 81753181,
-    //         OrderId = order.Id
-    //     };
-    //     _db.TakenOrders.AddAsync(takenOrder);
-    //     await _db.SaveChangesAsync();
-    // }
+    public async Task TakeOrder(Order order)
+    {
+        _db.Orders.Update(order);
+        await _db.SaveChangesAsync();
+    }
+
+    public List<Order> GetListByDeliveyId(string id)
+    {
+        return _db.Orders.Where(o => o.DeliveryId == id).ToList();
+    }
 }

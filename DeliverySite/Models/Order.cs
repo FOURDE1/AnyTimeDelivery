@@ -7,7 +7,7 @@ public class Order
     [Key]
     public int Id { get; set; }
 
-    public string TypeOfCategories { get; set; } = "category1";
+    public string TypeOfCategories { get; set; } 
 
     public DateTime OrderDate { get; set; }
 
@@ -21,7 +21,8 @@ public class Order
     public string DropOffLocation { get; set; }
 
     public string? Comments { get; set; }
-
+    public bool IsTaken { get; set; } = false;
+    public string DeliveryId { get; set; } = "";
    
 
     public string RegisterAppId { get; set; } // Foreign key to the identity user ID

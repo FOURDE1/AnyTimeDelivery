@@ -1,5 +1,6 @@
 ﻿using DeliverySite.Data;
 using DeliverySite.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverySite.Repos;
 
@@ -22,4 +23,9 @@ public class LoginRepo
         var ordersList = _db.Orders.ToList();
         return ordersList;
     }
+
+    // public IActionResult addOrder(int id)
+    // {
+    //
+    // }
 }
