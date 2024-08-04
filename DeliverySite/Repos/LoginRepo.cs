@@ -18,11 +18,19 @@ public class LoginRepo
         return await _db.RegisterApps.FindAsync(username);
     }
 
-    public List<Order> GetAllOrders()
+    public List<Order> GetAllOrders(string userId, bool isAdmin)
     {
-        var ordersList = _db.Orders.ToList();
+        var query = _db.Orders.AsQueryable();
+
+        if (!isAdmin)
+        {
+            query = query.Where(order => order.RegisterAppId != userId);
+        }
+
+        var ordersList = query.ToList();
         return ordersList;
     }
+
 
     // public IActionResult addOrder(int id)
     // {

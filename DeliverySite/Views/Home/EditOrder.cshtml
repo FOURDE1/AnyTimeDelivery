@@ -1,13 +1,14 @@
 ﻿@model Order
 
-
 <form method="post" asp-controller="Home" asp-action="EditOrder" style="background-color:#C5D5D9"
       class="col-md-6 g-3 gx-5 needs-validation  pt-4 pb-2 my-4 mx-auto rounded" >
 
     <div class="col-md-8 pb-3">
         <div class="col-md-6 ">
+            <input hidden asp-for="RegisterAppId">
+            
             <label asp-for="TypeOfCategories" class="form-label ">Type</label>
-            <select asp-for="TypeOfCategories" name="type" id="selectedType" class="form-select rounded-pill" required>
+            <select asp-for="TypeOfCategories" class="form-select rounded-pill" required>
                 <option value="" selected disabled>Select Type</option>
                 <option value="Electronics">Electronics</option>
                 <option value="Clothing and fashion">Clothing and fashion</option>
@@ -16,49 +17,40 @@
                 <option value="Health and beauty">Health and beauty</option>
                 <option value="Office supplies">Office supplies</option>
                 <option value="Automotive">Automotive</option>
-
             </select>
         </div>
         <div class="col-md-6 p-2 ">
-            <label asp-for="OrderDate" >Order Date:</label>
-            <input asp-for="OrderDate" class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate"
-                   class="form-control">
+            <label asp-for="OrderDate">Order Date:</label>
+            <input asp-for="OrderDate" class="form-control rounded-pill" type="datetime-local" id="OrderDate" name="OrderDate">
         </div>
     </div>
     <div class="col-md-6 ">
-        <label asp-for="NameOfRecipient" >Name Of Recipient:</label>
-        <input asp-for="NameOfRecipient" type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient"
-               required>
+        <label asp-for="NameOfRecipient">Name Of Recipient:</label>
+        <input asp-for="NameOfRecipient" type="text" class="form-control rounded-pill" id="NameOfRecipient" placeholder="Name of recipient" required>
         <div class="valid-feedback">
             looks good
         </div>
     </div><br>
 
     <div class="col-12 ">
-        <label asp-for="PickUpLocation" >Pick Up Location:</label>
-        <input asp-for="PickUpLocation" type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation"
-               required>
+        <label asp-for="PickUpLocation">Pick Up Location:</label>
+        <input asp-for="PickUpLocation" type="text" class="form-control rounded-pill" id="PickUpLocation" placeholder="PickUpLocation" required>
         <div class="valid-feedback">
             looks good
         </div>
     </div><br>
     <div class="col-12 ">
-        <label asp-for="DropOffLocation" >Drop Off Location:</label>
-        <input asp-for="DropOffLocation" type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location"
-               required>
+        <label asp-for="DropOffLocation">Drop Off Location:</label>
+        <input asp-for="DropOffLocation" type="text" class="form-control rounded-pill" id="DropOffLocation" placeholder="Drop-off Location" required>
         <div class="valid-feedback">
             looks good
         </div>
     </div>
     <br>
 
-
     <div class="col-12 ">
-       <label asp-for="Comments" >Comment :</label>
-        <textarea  asp-for="Comments" class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1"
-                 placeholder="Comments" required></textarea>
-
-
+        <label asp-for="Comments">Comment :</label>
+        <textarea asp-for="Comments" class="form-control rounded-pill" id="exampleFormControlTextarea1" rows="1" placeholder="Comments" required></textarea>
     </div>
     <br>
     <div class="col-12">
@@ -67,8 +59,6 @@
             Back to List
         </a>
     </div>
-
-
 </form>
 
 @section Scripts{

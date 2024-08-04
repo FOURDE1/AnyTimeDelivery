@@ -1,0 +1,22 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+	  {
+		"name": ".NET Core Launch (console)",
+		"type": "coreclr",
+		"request": "launch",
+		"preLaunchTask": "build",
+		"program": "${workspaceFolder}/DeliverySite/bin/Debug/net6.0/DeliverySite.dll",
+		"args": [],
+		"cwd": "${workspaceFolder}/DeliverySite",
+		"stopAtEntry": false,
+		"console": "internalConsole",
+		"logging": {
+		  "engineLogging": false,
+		  "trace": false,
+		  "programOutput": true
+		},
+		"internalConsoleOptions": "openOnSessionStart"
+	  }
+	]
+  }

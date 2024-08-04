@@ -16,7 +16,11 @@
         <div class="col-6">
             <h2 class="text-primary">Orders selectes</h2>
         </div>
-      
+       <div class="col-lg-6 text-lg-end">
+                  <a asp-controller="Deliver" asp-action="Index"  class="btn btn-secondary">
+                      &nbsp; Go Back
+                  </a>
+              </div>
     </div>
     <br/><br/>
     <div class="container">
@@ -43,9 +47,13 @@
             </tr>
             </thead>
             <tbody>
-
+            
             @foreach (var obj in Model) // it will display each row in database by a foreach loop that iterates over objects in Model
             {
+                if (obj.IsTaken)
+                {
+                    
+                
                 <tr>
                     <td>
                         @obj.Id
@@ -63,7 +71,7 @@
                     <td>
                         <div class="w-75 btn-group" role="group">
                             
-                                    <a asp-controller="Deliver" asp-action="TakeOrder" asp-route-id="@obj.Id"
+                                    <a asp-controller="Deliver" asp-action="Cancel" asp-route-id="@obj.Id"
                                        class="btn btn-success m-2">
                                         <i class="bi bi-pencil-square"></i> Cancel Order
                                     </a>
@@ -73,7 +81,7 @@
                         </div>
                     </td>
                 </tr>
-            }
+            }}
             </tbody>
 
         </table>

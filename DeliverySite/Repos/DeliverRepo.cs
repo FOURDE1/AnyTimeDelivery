@@ -17,6 +17,10 @@ public class DeliverRepo
     {
         _db.Orders.Update(order);
         await _db.SaveChangesAsync();
+       
+       {
+           
+       }
     }
 
     public List<Order> GetListByDeliveyId(string id)

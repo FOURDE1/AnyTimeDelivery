@@ -252,19 +252,19 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
                                              style="width: 200px;" alt="logo">
                                     </div>
 
-                                                                <form asp-controller="Account" method="post" asp-action="LogInFromHomePage" class="my-3">
+                                                                <form asp-controller="Account" method="post" asp-action="LogInFromHomePage" asp-route-model="@Model.login" class="my-3">
                                                                             <div class="my-3">
-                                                                                <input type="text" id="form2Example11" class="form-control" asp-for="login.Username" placeholder="Username"/>
+                                                                                <input type="text" id="form2Example11" class="form-control" asp-for="@Model.login.Username" placeholder="Username"/>
                                                                             </div>
                                                                             <div class="col">
-                                                                                <span asp-validation-for="login.Username" class="text-danger"></span>
+                                                                                <span asp-validation-for="@Model.login.Username" class="text-danger"></span>
                                                                             </div>
                                     
                                                                             <div class="my-3">
-                                                                                <input type="password" asp-for="login.Password" id="form2Example22" class="form-control" placeholder="Password"/>
+                                                                                <input type="password" asp-for="@Model.login.Password" id="form2Example22" class="form-control" placeholder="Password"/>
                                                                             </div>
                                                                             <div class="col">
-                                                                                <span asp-validation-for="login.Password" class="text-danger"></span>
+                                                                                <span asp-validation-for="@Model.login.Password" class="text-danger"></span>
                                                                             </div>
                                     
                                                                             <div class="form-group row">
@@ -272,8 +272,8 @@ document.getElementById("DeliveryInfoIcon").addEventListener("click",function(){
                                                                                     <!-- Modified class from "col-sm-4" to "col-sm-10" -->
                                                                                     <div class="form-check">
                                                                                         <!-- Added wrapper div with "form-check" class -->
-                                                                                        <input type="checkbox" title="Remember Me" asp-for="login.RememberMe" class="form-check-input">
-                                                                                        <label class="form-check-label small" asp-for="login.RememberMe">Remember Me</label>
+                                                                                        <input type="checkbox" title="Remember Me" asp-for="@Model.login.RememberMe" class="form-check-input">
+                                                                                        <label class="form-check-label small" asp-for="@Model.login.RememberMe">Remember Me</label>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>

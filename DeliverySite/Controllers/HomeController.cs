@@ -112,7 +112,6 @@ public class Home : Controller
     }
 
 
-    
     [Authorize]
     [HttpGet]
     public async Task<IActionResult> EditOrder(int id)
@@ -127,29 +126,27 @@ public class Home : Controller
     {
         if (!ModelState.IsValid)
         {
-            ModelState.AddModelError("", "Failed to edit club");
+            ModelState.AddModelError("", "Failed to edit order");
             return View("EditOrder", order);
         }
 
-        // await _ordersRepo.DeleteAsync(id);
-        // Delete(id);
+        var existingOrder = await _ordersRepo.GetOrderByIdAsync(order.Id);
+        if (existingOrder != null)
+        {
+            existingOrder.TypeOfCategories = order.TypeOfCategories;
+            existingOrder.OrderDate = order.OrderDate;
+            existingOrder.NameOfRecipient = order.NameOfRecipient;
+            existingOrder.PickUpLocation = order.PickUpLocation;
+            existingOrder.DropOffLocation = order.DropOffLocation;
+            existingOrder.Comments = order.Comments;
 
+            _ordersRepo.UpdateAsync(existingOrder);
+            TempData["Success"] = "Order Edited successfully";
+        }
 
-        // var updatedOrder = new order()
-        // {
-        //     
-        //     Type = Order.Type,
-        //     orderDate = Order.orderDate,
-        //     nameOfRecipient = Order.nameOfRecipient,
-        //     dropOffLocation = Order.dropOffLocation,
-        //     pickUpLocation = Order.pickUpLocation,
-        //     comments = Order.comments
-        // };
-        _ordersRepo.UpdateAsync(order);
-        // _ordersRepo.DeleteAsync(id - 1);
-        TempData["Success"] = "Order Edited successfully";
         return RedirectToAction(nameof(getAllOrders));
     }
+
 
     [Authorize]
     public async Task<IActionResult> DeleteOrder(int id)

@@ -115,12 +115,15 @@ public class AccountController : Controller
             if (result.Succeeded)
             {
                 TempData["Success"] = "Logged in successfully";
+                if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                    return Redirect(model.ReturnUrl);
+            
                 return RedirectToAction("Index", "Home");
             }
         }
 
         ModelState.AddModelError("", "Invalid username/password.");
-        return RedirectToAction("Index","Home", "signupPart" );
+        return RedirectToAction("Index", "Home");
     }
 
     [HttpPost]

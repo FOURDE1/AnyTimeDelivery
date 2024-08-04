@@ -7,7 +7,7 @@ public class Order
     [Key]
     public int Id { get; set; }
 
-    public string TypeOfCategories { get; set; } 
+    public string TypeOfCategories { get; set; } = "Category";
 
     public DateTime OrderDate { get; set; }
 

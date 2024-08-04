@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\OneDrive\\Desktop\\webProject\\Capstone-project\\DeliverySite\\DeliverySite.csproj": {}
+    "C:\\Users\\hossi\\OneDrive\\Desktop\\Web\\Sites\\Delivery site\\DeliverySite\\DeliverySite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\OneDrive\\Desktop\\webProject\\Capstone-project\\DeliverySite\\DeliverySite.csproj": {
+    "C:\\Users\\hossi\\OneDrive\\Desktop\\Web\\Sites\\Delivery site\\DeliverySite\\DeliverySite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\OneDrive\\Desktop\\webProject\\Capstone-project\\DeliverySite\\DeliverySite.csproj",
+        "projectUniqueName": "C:\\Users\\hossi\\OneDrive\\Desktop\\Web\\Sites\\Delivery site\\DeliverySite\\DeliverySite.csproj",
         "projectName": "DeliverySite",
-        "projectPath": "C:\\Users\\user\\OneDrive\\Desktop\\webProject\\Capstone-project\\DeliverySite\\DeliverySite.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\OneDrive\\Desktop\\webProject\\Capstone-project\\DeliverySite\\obj\\",
+        "projectPath": "C:\\Users\\hossi\\OneDrive\\Desktop\\Web\\Sites\\Delivery site\\DeliverySite\\DeliverySite.csproj",
+        "packagesPath": "C:\\Users\\hossi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hossi\\OneDrive\\Desktop\\Web\\Sites\\Delivery site\\DeliverySite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hossi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
         }
       }
     }
